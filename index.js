@@ -11,12 +11,12 @@ let audioTarget = document.getElementById('play-target');
 let audioCf = document.getElementById('play-counterfactual');
 
 audioTarget.addEventListener('click', function () {
-    targetAudio.src = "example1/word_clips/cf_are_6.wav";
+    // targetAudio.src = "example1/word_clips/cf_are_6.wav";
     targetAudio.play();
 });
 
 audioCf.addEventListener('click', function () {
-    counterfactualAudio.src = "example1/word_clips/tgt_are_6.wav";
+    // counterfactualAudio.src = "example1/word_clips/tgt_are_6.wav";
     counterfactualAudio.play();
 });
 
@@ -43,7 +43,8 @@ const rlt2color = {
     "Longer": "#3498DB",
     "Similar": "#BDC3C7",
     "More": "#3498DB",
-    "Less": "#E74B3C"
+    "Less": "#E74B3C",
+    "Faster": "#3498DB",
 }
 
 // counterfactualSelect.addEventListener('change', function(){
@@ -51,7 +52,7 @@ const rlt2color = {
 // });
 
 function addAudioPlayback(element, path, isCapsule) {
-    let audio = new Audio(`/example1/${path}`);
+    let audio = new Audio(`${path}`);
     element.addEventListener('click', function () {
         audio.play();
     });
@@ -131,6 +132,11 @@ function createCapsule(colorLeft, colorRight, audioPathLeft, audioPathRight) {
 }
 
 function createTriangle(colorLeft, colorRight, audioPathLeft, audioPathRight) {
+
+    if (colorLeft == "white") {
+        return document.createElement('div')
+    }
+
     let container = document.createElement('div');
     container.classList.add('container-capsule');
 
@@ -155,13 +161,16 @@ function createTriangle(colorLeft, colorRight, audioPathLeft, audioPathRight) {
     return container;
 }
 
+var emotions = ["angry", "surprise", "happy", "sad", "neutral"];
+
 function loadTable(filename) {
+
     mapTable.innerHTML = "";
     fetch(filename)
         .then(response => response.json())
         .then(data => {
-            // targetAudio.src = data.target_audio_path;
-            // counterfactualAudio.src = data.counterfactual_audio_path;
+            targetAudio.src = data.target_audio_path;
+            counterfactualAudio.src = data.counterfactual_audio_path;
 
             targetAudio.onplay = function () {
                 audioTarget.classList.remove('fa-play-circle');
@@ -223,7 +232,7 @@ function loadTable(filename) {
                     let cell = row.insertCell();
 
                     if (index == 4) {
-                        capsule = createTriangle(colorLeft, colorRight, data.tgt_word_clips[idx], data.cf_word_clips[idx]);
+                        capsule = createTriangle(colorLeft, colorRight, data.tgt_word_clips[idx], data.cf_pause_word_clips[idx]);
                     } else {
                         capsule = createCapsule(colorLeft, colorRight, data.tgt_word_clips[idx], data.cf_word_clips[idx]);
                     }
@@ -248,6 +257,36 @@ counterfactualSelect.addEventListener('change', function () {
 
 });
 
-loadTable('./example1/data_surprise.json');
+var newEmotions = [];
+var targetEmo = ""
+
+async function checkFile(emotions) {
+    let response;
+    for(let i = 0; i < emotions.length; i++) {
+        
+        response = await fetch(`./example1/data_${emotions[i]}.json`);
+        if (response.ok) {
+            console.log("File exists")
+            newEmotions.push(emotions[i])
+        } else {
+            console.log("File does not exist")
+            targetEmo = emotions[i]
+        }
+    }
+}
+
+checkFile(emotions).then(() => {
+
+    counterfactualSelect.innerHTML = "";
+    newEmotions.forEach(emotion => {
+        let option = document.createElement('option');
+        option.value = emotion;
+        option.innerText = emotion.charAt(0).toUpperCase() + emotion.slice(1);
+        counterfactualSelect.appendChild(option)
+    });
+
+    loadTable(`./example1/data_${newEmotions[0]}.json`);
+});
+// loadTable("");
 
 
