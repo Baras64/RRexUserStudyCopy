@@ -11,12 +11,12 @@ let audioTarget = document.getElementById('play-target');
 let audioCf = document.getElementById('play-counterfactual');
 
 audioTarget.addEventListener('click', function () {
-    targetAudio.src = "./example1/word_clips/cf_are_6.wav";
+    targetAudio.src = "example1/word_clips/cf_are_6.wav";
     targetAudio.play();
 });
 
 audioCf.addEventListener('click', function () {
-    counterfactualAudio.src = "./example1/word_clips/tgt_are_6.wav";
+    counterfactualAudio.src = "example1/word_clips/tgt_are_6.wav";
     counterfactualAudio.play();
 });
 
@@ -160,8 +160,8 @@ function loadTable(filename) {
     fetch(filename)
         .then(response => response.json())
         .then(data => {
-            targetAudio.src = data.target_audio_path;
-            counterfactualAudio.src = data.counterfactual_audio_path;
+            // targetAudio.src = data.target_audio_path;
+            // counterfactualAudio.src = data.counterfactual_audio_path;
 
             targetAudio.onplay = function () {
                 audioTarget.classList.remove('fa-play-circle');
