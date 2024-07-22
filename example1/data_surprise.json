@@ -1,0 +1,170 @@
+{
+    "text": "I Thought You Meant How Old Are You",
+
+    "target_audio_path": "0_Neutral.wav",
+    "target_emotion": "Neutral",
+
+    "counterfactual_audio_path": "1_Surprise.wav",
+    "counterfactual_emotion": "Surprise",
+
+    "tgt_word_clips": [
+        "example1/word_clips/tgt_i_0.wav",
+        "example1/word_clips/tgt_thought_1.wav",
+        "example1/word_clips/tgt_you_2.wav",
+        "example1/word_clips/tgt_meant_3.wav",
+        "example1/word_clips/tgt_how_4.wav",
+        "example1/word_clips/tgt_old_5.wav",
+        "example1/word_clips/tgt_are_6.wav",
+        "example1/word_clips/tgt_you_7.wav"
+    ],
+    "cf_word_clips": [
+        "example1/word_clips/cf_i_0.wav",
+        "example1/word_clips/cf_thought_1.wav",
+        "example1/word_clips/cf_you_2.wav",
+        "example1/word_clips/cf_meant_3.wav",
+        "example1/word_clips/cf_how_4.wav",
+        "example1/word_clips/cf_old_5.wav",
+        "example1/word_clips/cf_are_6.wav",
+        "example1/word_clips/cf_you_7.wav"
+    ],
+
+    "loudness": {
+        "rlt": "Lower",
+        "left": [
+            "lightgray",
+            "#6eafdb",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "#a4c5db",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "lightgray",
+            "#0083db",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "#3799db",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ]
+    },
+    "average_pitch": {
+        "rlt": "Lower",
+        "left": [
+            "lightgray",
+            "#6eafdb",
+            "lightgray",
+            "lightgray",
+            "#89badb",
+            "#a4c5db",
+            "lightgray",
+            "#c0d0db",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "lightgray",
+            "#0083db",
+            "lightgray",
+            "lightgray",
+            "#52a4db",
+            "#1b8edb",
+            "lightgray",
+            "#3799db",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ]
+    },
+    "pitch_range": {
+        "rlt": "Lower",
+        "left": [
+            "lightgray",
+            "#6eafdb",
+            "lightgray",
+            "lightgray",
+            "#89badb",
+            "#a4c5db",
+            "lightgray",
+            "#c0d0db",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "lightgray",
+            "#0083db",
+            "lightgray",
+            "lightgray",
+            "#52a4db",
+            "#1b8edb",
+            "lightgray",
+            "#3799db",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ]
+    },
+    "speed": {
+        "rlt": "Shorter",
+        "left": [
+            "#cbd5db",
+            "#7db5db",
+            "#1f90db",
+            "#0083db",
+            "#9cc2db",
+            "#5ea9db",
+            "#2f96db",
+            "#bccedb"
+        ],
+        "right": [
+            "#acc8db",
+            "#4ea3db",
+            "#3f9cdb",
+            "#1089db",
+            "#8dbcdb",
+            "#4ea3db",
+            "#6eafdb",
+            "#dbdbdb"
+        ]
+    },
+    "pauses": {
+        "rlt": "Similar",
+        "left": [
+            "#dbdbdb",
+            "#dbdbdb",
+            "#b6ccdb",
+            "#dbdbdb",
+            "#2492db",
+            "#dbdbdb",
+            "#0083db",
+            "#6eafdb"
+        ],
+        "right": [
+            "#dbdbdb",
+            "#0083db",
+            "#dbdbdb",
+            "#92bedb",
+            "#dbdbdb",
+            "#dbdbdb",
+            "#dbdbdb",
+            "#49a0db"
+        ]
+    }
+}
