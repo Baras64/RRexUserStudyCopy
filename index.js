@@ -11,12 +11,12 @@ let audioTarget = document.getElementById('play-target');
 let audioCf = document.getElementById('play-counterfactual');
 
 audioTarget.addEventListener('click', function () {
-    targetAudio.src = "./word_clips/cf_are_6.wav";
+    targetAudio.src = "./example1/word_clips/cf_are_6.wav";
     targetAudio.play();
 });
 
 audioCf.addEventListener('click', function () {
-    counterfactualAudio.src = "./word_clips/tgt_are_6.wav";
+    counterfactualAudio.src = "./example1/word_clips/tgt_are_6.wav";
     counterfactualAudio.play();
 });
 
@@ -51,7 +51,7 @@ const rlt2color = {
 // });
 
 function addAudioPlayback(element, path, isCapsule) {
-    let audio = new Audio(path);
+    let audio = new Audio(`/example1/${path}`);
     element.addEventListener('click', function () {
         audio.play();
     });
