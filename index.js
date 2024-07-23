@@ -57,45 +57,25 @@ function addAudioPlayback(element, path, isCapsule) {
         audio.play();
     });
 
-    if (isCapsule) {
-        var oldColor = element.style.borderColor;
-    } else {
-        var oldColor = element.style.borderLeftColor
-    }
+    var oldColor = element.style.borderColor;
 
     audio.addEventListener('play', function () {
-        if (isCapsule) {
-            element.style.borderColor = "#67ed37";
-        } else {
-            element.style.borderLeftColor = "#67ed37";
-        }
+        element.style.borderColor = "#67ed37";
     });
 
     audio.addEventListener('ended', function () {
-        if (isCapsule) {
-            element.style.borderColor = oldColor;
-        } else {
-            element.style.borderLeftColor = oldColor;
-        }
+        element.style.borderColor = oldColor;
     });
 
     element.style.cursor = "pointer"
 
 
     element.addEventListener('mouseover', function () {
-        if (isCapsule) {
-            element.style.borderColor = "#d8ed82";
-        } else {
-            element.style.borderLeftColor = "#d8ed82";
-        }
+        element.style.borderColor = "#d8ed82";
     });
 
     element.addEventListener('mouseout', function () {
-        if (isCapsule) {
-            element.style.borderColor = oldColor;
-        } else {
-            element.style.borderLeftColor = oldColor;
-        }
+        element.style.borderColor = oldColor;
     });
 
     // return element;
@@ -142,13 +122,15 @@ function createTriangle(colorLeft, colorRight, audioPathLeft, audioPathRight) {
 
     let leftShape = document.createElement('div');
     leftShape.classList.add('triangle-left');
-    leftShape.style.borderLeftColor = colorLeft;
+    leftShape.style.backgroundColor = colorLeft;
+    leftShape.style.borderColor = colorLeft;
 
     addAudioPlayback(leftShape, audioPathLeft, false)
 
     let rightShape = document.createElement('div');
     rightShape.classList.add('triangle-right');
-    rightShape.style.borderLeftColor = colorRight;
+    rightShape.style.backgroundColor = colorRight;
+    rightShape.style.borderColor = colorRight;
 
     addAudioPlayback(rightShape, audioPathRight, false)
 
@@ -162,6 +144,11 @@ function createTriangle(colorLeft, colorRight, audioPathLeft, audioPathRight) {
 }
 
 var emotions = ["angry", "surprise", "happy", "sad", "neutral"];
+
+function insertPaddedCell(row){
+    let cell = row.insertCell();
+    cell.style.width = "30px";
+}
 
 function loadTable(filename) {
 
@@ -204,6 +191,7 @@ function loadTable(filename) {
             cell = row.insertCell();
             cell = row.insertCell();
             cell = row.insertCell();
+            cell = row.insertCell();
 
             words.forEach(element => {
                 let cell = row.insertCell();
@@ -220,11 +208,12 @@ function loadTable(filename) {
                 cell.innerText = cueData.rlt;
                 cell.style.color = rlt2color[rltText];
 
+                insertPaddedCell(row);
+
                 cell = row.insertCell();
                 cell.innerText = cueidx2cue[idx2cueidx[index]];
 
-
-                cell = row.insertCell();
+                insertPaddedCell(row);
 
                 words.forEach((element, idx) => {
                     let colorLeft = cueData["left"][idx];
@@ -238,7 +227,7 @@ function loadTable(filename) {
                     }
 
                     cell.appendChild(capsule);
-                    row.insertCell();
+                    insertPaddedCell(row);
 
                 });
 

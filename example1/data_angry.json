@@ -3,20 +3,6 @@
     "loudness": {
         "left": [
             "lightgray",
-            "#0749ba",
-            "#0b59c7",
-            "lightgray",
-            "lightgray",
-            "#0f6ad4",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray"
-        ],
-        "right": [
-            "lightgray",
             "#157be0",
             "#208de6",
             "lightgray",
@@ -29,13 +15,41 @@
             "lightgray",
             "lightgray"
         ],
-        "rlt": "Higher"
+        "right": [
+            "lightgray",
+            "#0749ba",
+            "#0b59c7",
+            "lightgray",
+            "lightgray",
+            "#0f6ad4",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "rlt": "Lower"
     },
     "average_pitch": {
         "left": [
             "lightgray",
+            "#157be0",
+            "#339ce4",
             "lightgray",
-            "#0d61ce",
+            "lightgray",
+            "#208de6",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "lightgray",
+            "#0b59c7",
+            "#0f6ad4",
             "lightgray",
             "lightgray",
             "#0749ba",
@@ -46,27 +60,27 @@
             "lightgray",
             "lightgray"
         ],
-        "right": [
-            "lightgray",
-            "lightgray",
-            "#2a95e5",
-            "lightgray",
-            "lightgray",
-            "#157be0",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray"
-        ],
-        "rlt": "Higher"
+        "rlt": "Lower"
     },
     "pitch_range": {
         "left": [
             "lightgray",
+            "#157be0",
+            "#339ce4",
             "lightgray",
             "lightgray",
+            "#208de6",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "lightgray",
+            "#0b59c7",
+            "#0f6ad4",
             "lightgray",
             "lightgray",
             "#0749ba",
@@ -77,46 +91,32 @@
             "lightgray",
             "lightgray"
         ],
-        "right": [
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "#157be0",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray"
-        ],
-        "rlt": "Higher"
+        "rlt": "Lower"
     },
     "speed": {
         "left": [
-            "#0f66d2",
+            "lightgray",
+            "lightgray",
+            "lightgray",
             "#157be0",
-            "#1886e7",
-            "#2490e6",
             "#46aae3",
-            "#0749ba"
+            "lightgray"
         ],
         "right": [
-            "#0c5cca",
-            "#0f66d2",
-            "#1171d9",
-            "#3ba2e4",
-            "#2f99e5",
-            "#0952c2"
+            "lightgray",
+            "lightgray",
+            "#0d61ce",
+            "#2a95e5",
+            "lightgray",
+            "lightgray"
         ],
-        "rlt": "Shorter"
+        "rlt": "Longer"
     },
     "pauses": {
         "left": [
             "lightgray",
-            "lightgray",
             "#0749ba",
+            "#0f6ad4",
             "lightgray",
             "lightgray",
             "white"
@@ -124,14 +124,14 @@
         "right": [
             "lightgray",
             "#0749ba",
-            "#0749ba",
+            "#208de6",
             "lightgray",
             "lightgray",
             "white"
         ],
         "rlt": "Higher"
     },
-    "target_emotion": "Surprise",
+    "target_emotion": "Sad",
     "counterfactual_emotion": "Angry",
     "tgt_word_clips": [
         "example1/word_clips_1/tgt_a_0.wav",
