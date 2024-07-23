@@ -51,6 +51,8 @@ const rlt2color = {
 //     console.log("Counterfactual emotion changed to: ", counterfactualSelect.value);
 // });
 
+var baseDir = "example3"
+
 function addAudioPlayback(element, path, isCapsule) {
     let audio = new Audio(`${path}`);
     element.addEventListener('click', function () {
@@ -241,7 +243,7 @@ counterfactualSelect.addEventListener('change', function () {
 
     let emotion = counterfactualSelect.value;
 
-    let filename = `./example1/data_${emotion}.json`;
+    let filename = `./${baseDir}/data_${emotion}.json`;
     loadTable(filename);
 
 });
@@ -253,7 +255,7 @@ async function checkFile(emotions) {
     let response;
     for(let i = 0; i < emotions.length; i++) {
         
-        response = await fetch(`./example1/data_${emotions[i]}.json`);
+        response = await fetch(`./${baseDir}/data_${emotions[i]}.json`);
         if (response.ok) {
             console.log("File exists")
             newEmotions.push(emotions[i])
@@ -274,7 +276,7 @@ checkFile(emotions).then(() => {
         counterfactualSelect.appendChild(option)
     });
 
-    loadTable(`./example1/data_${newEmotions[0]}.json`);
+    loadTable(`./${baseDir}/data_${newEmotions[0]}.json`);
 });
 // loadTable("");
 

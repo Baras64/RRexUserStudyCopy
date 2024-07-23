@@ -1,13 +1,13 @@
 {
-    "text": "A Hippo Lives In The Zoo",
+    "text": "A Deafening Chirping Rent The Air",
     "loudness": {
         "left": [
             "lightgray",
             "#157be0",
-            "#208de6",
+            "#2a95e5",
             "lightgray",
             "lightgray",
-            "#339ce4",
+            "lightgray",
             "lightgray",
             "lightgray",
             "lightgray",
@@ -18,10 +18,10 @@
         "right": [
             "lightgray",
             "#0749ba",
-            "#0b59c7",
+            "#0d61ce",
             "lightgray",
             "lightgray",
-            "#0f6ad4",
+            "lightgray",
             "lightgray",
             "lightgray",
             "lightgray",
@@ -35,10 +35,10 @@
         "left": [
             "lightgray",
             "#157be0",
-            "#339ce4",
+            "#0d61ce",
             "lightgray",
             "lightgray",
-            "#208de6",
+            "lightgray",
             "lightgray",
             "lightgray",
             "lightgray",
@@ -48,11 +48,11 @@
         ],
         "right": [
             "lightgray",
-            "#0b59c7",
-            "#0f6ad4",
-            "lightgray",
-            "lightgray",
             "#0749ba",
+            "#2a95e5",
+            "lightgray",
+            "lightgray",
+            "lightgray",
             "lightgray",
             "lightgray",
             "lightgray",
@@ -65,11 +65,11 @@
     "pitch_range": {
         "left": [
             "lightgray",
-            "#157be0",
-            "#339ce4",
+            "lightgray",
+            "#0749ba",
             "lightgray",
             "lightgray",
-            "#208de6",
+            "#2a95e5",
             "lightgray",
             "lightgray",
             "lightgray",
@@ -79,11 +79,11 @@
         ],
         "right": [
             "lightgray",
-            "#0b59c7",
-            "#0f6ad4",
+            "lightgray",
+            "#0d61ce",
             "lightgray",
             "lightgray",
-            "#0749ba",
+            "#157be0",
             "lightgray",
             "lightgray",
             "lightgray",
@@ -96,17 +96,18 @@
     "speed": {
         "left": [
             "lightgray",
+            "#0d61ce",
+            "lightgray",
+            "#2a95e5",
             "lightgray",
             "lightgray",
-            "#157be0",
-            "#46aae3",
             "lightgray"
         ],
         "right": [
             "lightgray",
+            "#46aae3",
             "lightgray",
-            "#0d61ce",
-            "#2a95e5",
+            "#157be0",
             "lightgray",
             "lightgray"
         ],
@@ -116,15 +117,16 @@
         "left": [
             "lightgray",
             "#0749ba",
-            "#0f6ad4",
+            "lightgray",
+            "lightgray",
             "lightgray",
             "lightgray",
             "white"
         ],
         "right": [
             "lightgray",
+            "#157be0",
             "#0749ba",
-            "#208de6",
             "lightgray",
             "lightgray",
             "white"
@@ -135,33 +137,33 @@
     "counterfactual_emotion": "Angry",
     "tgt_word_clips": [
         "example1/word_clips_1/tgt_a_0.wav",
-        "example1/word_clips_1/tgt_hippo_1.wav",
-        "example1/word_clips_1/tgt_lives_2.wav",
-        "example1/word_clips_1/tgt_in_3.wav",
+        "example1/word_clips_1/tgt_deafening_1.wav",
+        "example1/word_clips_1/tgt_chirping_2.wav",
+        "example1/word_clips_1/tgt_rent_3.wav",
         "example1/word_clips_1/tgt_the_4.wav",
-        "example1/word_clips_1/tgt_zoo_5.wav"
+        "example1/word_clips_1/tgt_air_5.wav"
     ],
     "cf_word_clips": [
         "example1/word_clips_1/cf_a_0.wav",
-        "example1/word_clips_1/cf_hippo_1.wav",
-        "example1/word_clips_1/cf_lives_2.wav",
-        "example1/word_clips_1/cf_in_3.wav",
+        "example1/word_clips_1/cf_deafening_1.wav",
+        "example1/word_clips_1/cf_chirping_2.wav",
+        "example1/word_clips_1/cf_rent_3.wav",
         "example1/word_clips_1/cf_the_4.wav",
-        "example1/word_clips_1/cf_zoo_5.wav"
+        "example1/word_clips_1/cf_air_5.wav"
     ],
     "tgt_pause_word_clips": [
-        "example1/word_clips_1/tgt_consecutive_a_hippo_0.wav",
-        "example1/word_clips_1/tgt_consecutive_hippo_lives_1.wav",
-        "example1/word_clips_1/tgt_consecutive_lives_in_2.wav",
-        "example1/word_clips_1/tgt_consecutive_in_the_3.wav",
-        "example1/word_clips_1/tgt_consecutive_the_zoo_4.wav"
+        "example1/word_clips_1/tgt_consecutive_a_deafening_0.wav",
+        "example1/word_clips_1/tgt_consecutive_deafening_chirping_1.wav",
+        "example1/word_clips_1/tgt_consecutive_chirping_rent_2.wav",
+        "example1/word_clips_1/tgt_consecutive_rent_the_3.wav",
+        "example1/word_clips_1/tgt_consecutive_the_air_4.wav"
     ],
     "cf_pause_word_clips": [
-        "example1/word_clips_1/cf_consecutive_a_hippo_0.wav",
-        "example1/word_clips_1/cf_consecutive_hippo_lives_1.wav",
-        "example1/word_clips_1/cf_consecutive_lives_in_2.wav",
-        "example1/word_clips_1/cf_consecutive_in_the_3.wav",
-        "example1/word_clips_1/cf_consecutive_the_zoo_4.wav"
+        "example1/word_clips_1/cf_consecutive_a_deafening_0.wav",
+        "example1/word_clips_1/cf_consecutive_deafening_chirping_1.wav",
+        "example1/word_clips_1/cf_consecutive_chirping_rent_2.wav",
+        "example1/word_clips_1/cf_consecutive_rent_the_3.wav",
+        "example1/word_clips_1/cf_consecutive_the_air_4.wav"
     ],
     "target_audio_path": "example1/word_clips_1/tgt_1.wav",
     "counterfactual_audio_path": "example1/word_clips_1/cf_1.wav"
