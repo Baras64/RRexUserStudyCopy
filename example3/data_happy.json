@@ -1,1 +1,184 @@
-{"text": "I Thought You Meant How Old Are You", "loudness": {"left": ["lightgray", "#0749ba", "lightgray", "#0d61ce", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray"], "right": ["lightgray", "#157be0", "lightgray", "#2a95e5", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray"], "rlt": "Higher"}, "average_pitch": {"left": ["lightgray", "#0749ba", "lightgray", "#208de6", "#157be0", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray"], "right": ["lightgray", "#0b59c7", "lightgray", "#339ce4", "#0f6ad4", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray"], "rlt": "Similar"}, "pitch_range": {"left": ["lightgray", "lightgray", "lightgray", "#157be0", "#0d61ce", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray"], "right": ["lightgray", "lightgray", "lightgray", "#2a95e5", "#0749ba", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray", "lightgray"], "rlt": "Lower"}, "speed": {"left": ["lightgray", "lightgray", "#157be0", "#46aae3", "lightgray", "lightgray", "lightgray", "lightgray"], "right": ["lightgray", "lightgray", "#157be0", "#46aae3", "lightgray", "lightgray", "lightgray", "lightgray"], "rlt": "Longer"}, "pauses": {"left": ["lightgray", "#0749ba", "#0f6ad4", "lightgray", "lightgray", "lightgray", "lightgray", "white"], "right": ["lightgray", "#0749ba", "lightgray", "lightgray", "#208de6", "lightgray", "lightgray", "white"], "rlt": "Higher"}, "target_emotion": "Angry", "counterfactual_emotion": "Happy", "tgt_word_clips": ["example3/word_clips_1/tgt_i_0.wav", "example3/word_clips_1/tgt_thought_1.wav", "example3/word_clips_1/tgt_you_2.wav", "example3/word_clips_1/tgt_meant_3.wav", "example3/word_clips_1/tgt_how_4.wav", "example3/word_clips_1/tgt_old_5.wav", "example3/word_clips_1/tgt_are_6.wav", "example3/word_clips_1/tgt_you_7.wav"], "cf_word_clips": ["example3/word_clips_1/cf_i_0.wav", "example3/word_clips_1/cf_thought_1.wav", "example3/word_clips_1/cf_you_2.wav", "example3/word_clips_1/cf_meant_3.wav", "example3/word_clips_1/cf_how_4.wav", "example3/word_clips_1/cf_old_5.wav", "example3/word_clips_1/cf_are_6.wav", "example3/word_clips_1/cf_you_7.wav"], "tgt_pause_word_clips": ["example3/word_clips_1/tgt_consecutive_i_thought_0.wav", "example3/word_clips_1/tgt_consecutive_thought_you_1.wav", "example3/word_clips_1/tgt_consecutive_you_meant_2.wav", "example3/word_clips_1/tgt_consecutive_meant_how_3.wav", "example3/word_clips_1/tgt_consecutive_how_old_4.wav", "example3/word_clips_1/tgt_consecutive_old_are_5.wav", "example3/word_clips_1/tgt_consecutive_are_you_6.wav"], "cf_pause_word_clips": ["example3/word_clips_1/cf_consecutive_i_thought_0.wav", "example3/word_clips_1/cf_consecutive_thought_you_1.wav", "example3/word_clips_1/cf_consecutive_you_meant_2.wav", "example3/word_clips_1/cf_consecutive_meant_how_3.wav", "example3/word_clips_1/cf_consecutive_how_old_4.wav", "example3/word_clips_1/cf_consecutive_old_are_5.wav", "example3/word_clips_1/cf_consecutive_are_you_6.wav"], "target_audio_path": "example3/word_clips_1/tgt_1.wav", "counterfactual_audio_path": "example3/word_clips_1/cf_1.wav"}
+{
+    "text": "I Thought You Meant How Old Are You",
+    "loudness": {
+        "left": [
+            "lightgray",
+            "#0749ba",
+            "lightgray",
+            "#0d61ce",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "lightgray",
+            "#157be0",
+            "lightgray",
+            "#2a95e5",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "rlt": "Higher"
+    },
+    "average_pitch": {
+        "left": [
+            "lightgray",
+            "#0749ba",
+            "lightgray",
+            "#208de6",
+            "#157be0",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "lightgray",
+            "#0b59c7",
+            "lightgray",
+            "#339ce4",
+            "#0f6ad4",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "rlt": "Similar"
+    },
+    "pitch_range": {
+        "left": [
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "#157be0",
+            "#0d61ce",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "#2a95e5",
+            "#0749ba",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "rlt": "Lower"
+    },
+    "speed": {
+        "left": [
+            "lightgray",
+            "lightgray",
+            "#157be0",
+            "#46aae3",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "lightgray",
+            "lightgray",
+            "#157be0",
+            "#46aae3",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "rlt": "Longer"
+    },
+    "pauses": {
+        "left": [
+            "lightgray",
+            "#0749ba",
+            "#0f6ad4",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "white"
+        ],
+        "right": [
+            "lightgray",
+            "#0749ba",
+            "lightgray",
+            "lightgray",
+            "#208de6",
+            "lightgray",
+            "lightgray",
+            "white"
+        ],
+        "rlt": "Higher"
+    },
+    "target_emotion": "Angry",
+    "counterfactual_emotion": "Happy",
+    "tgt_word_clips": [
+        "example3/word_clips_1/tgt_i_0.wav",
+        "example3/word_clips_1/tgt_thought_1.wav",
+        "example3/word_clips_1/tgt_you_2.wav",
+        "example3/word_clips_1/tgt_meant_3.wav",
+        "example3/word_clips_1/tgt_how_4.wav",
+        "example3/word_clips_1/tgt_old_5.wav",
+        "example3/word_clips_1/tgt_are_6.wav",
+        "example3/word_clips_1/tgt_you_7.wav"
+    ],
+    "cf_word_clips": [
+        "example3/word_clips_1/cf_i_0.wav",
+        "example3/word_clips_1/cf_thought_1.wav",
+        "example3/word_clips_1/cf_you_2.wav",
+        "example3/word_clips_1/cf_meant_3.wav",
+        "example3/word_clips_1/cf_how_4.wav",
+        "example3/word_clips_1/cf_old_5.wav",
+        "example3/word_clips_1/cf_are_6.wav",
+        "example3/word_clips_1/cf_you_7.wav"
+    ],
+    "tgt_pause_word_clips": [
+        "example3/word_clips_1/tgt_consecutive_i_thought_0.wav",
+        "example3/word_clips_1/tgt_consecutive_thought_you_1.wav",
+        "example3/word_clips_1/tgt_consecutive_you_meant_2.wav",
+        "example3/word_clips_1/tgt_consecutive_meant_how_3.wav",
+        "example3/word_clips_1/tgt_consecutive_how_old_4.wav",
+        "example3/word_clips_1/tgt_consecutive_old_are_5.wav",
+        "example3/word_clips_1/tgt_consecutive_are_you_6.wav"
+    ],
+    "cf_pause_word_clips": [
+        "example3/word_clips_1/cf_consecutive_i_thought_0.wav",
+        "example3/word_clips_1/cf_consecutive_thought_you_1.wav",
+        "example3/word_clips_1/cf_consecutive_you_meant_2.wav",
+        "example3/word_clips_1/cf_consecutive_meant_how_3.wav",
+        "example3/word_clips_1/cf_consecutive_how_old_4.wav",
+        "example3/word_clips_1/cf_consecutive_old_are_5.wav",
+        "example3/word_clips_1/cf_consecutive_are_you_6.wav"
+    ],
+    "target_audio_path": "example3/word_clips_1/tgt_1.wav",
+    "counterfactual_audio_path": "example3/word_clips_1/cf_1.wav"
+}

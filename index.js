@@ -51,7 +51,7 @@ const rlt2color = {
 //     console.log("Counterfactual emotion changed to: ", counterfactualSelect.value);
 // });
 
-var baseDir = "example3"
+var baseDir = "example1"
 
 function addAudioPlayback(element, path, isCapsule) {
     let audio = new Audio(`${path}`);
