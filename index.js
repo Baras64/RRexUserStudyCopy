@@ -255,6 +255,7 @@ function loadTable(filename) {
                         if(row.value <= 4 && row.value >= 0) {
                             if (row.value != index) {
                                 row.style.opacity = 0.3;
+                                row.style.transition = "opacity 0.3s";
                             }
                         }
                     });
