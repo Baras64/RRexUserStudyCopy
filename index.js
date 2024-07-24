@@ -62,8 +62,8 @@ function addBothAudioPlayback(leftElement, rightElement, leftPath, rightPath) {
     let rightAudio = new Audio(`${rightPath}`);
 
     leftElement.addEventListener('click', function () {
-        leftAudio.onended = function(){return}
-        rightAudio.onended = function(){return}
+        leftAudio.onended = function () { return }
+        rightAudio.onended = function () { return }
         leftAudio.play();
         leftAudio.onended = function () {
             rightAudio.play();
@@ -71,8 +71,8 @@ function addBothAudioPlayback(leftElement, rightElement, leftPath, rightPath) {
     });
 
     rightElement.addEventListener('click', function () {
-        leftAudio.onended = function(){return}
-        rightAudio.onended = function(){return}
+        leftAudio.onended = function () { return }
+        rightAudio.onended = function () { return }
         rightAudio.play();
         rightAudio.onended = function () {
             leftAudio.play();
@@ -248,6 +248,28 @@ function loadTable(filename) {
             for (let index = 0; index < 5; index++) {
                 cueData = data[idx2cueidx[index]]
                 let row = mapTable.insertRow();
+                row.value = index;
+                row.addEventListener('mouseover', function () {
+
+                    Array.from(mapTable.rows).forEach(row => {
+                        if(row.value <= 4 && row.value >= 0) {
+                            if (row.value != index) {
+                                row.style.opacity = 0.3;
+                            }
+                        }
+                    });
+
+                });
+                row.addEventListener('mouseout', function () {
+                    Array.from(mapTable.rows).forEach(row => {
+                        console.log(row.value)
+                        if(row.value <= 4 && row.value >= 0) {
+                            if (row.value != index) {
+                                row.style.opacity = 1;
+                            }
+                        }
+                    });
+                });
 
                 cell = row.insertCell();
                 rltText = cueData.rlt
