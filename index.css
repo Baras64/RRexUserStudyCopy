@@ -1,44 +1,35 @@
 body {
     font-family: Arial, sans-serif;
     margin: 50px;
-    /* display: flex; */
     justify-content: center;
-    /* align-items: flex-start; */
 }
 
 .container-capsule {
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
-    /* height: 100vh;
-    width: 100vh; */
 }
 
 .container-table {
-    /* display: flex; */
-    /* justify-content: left; */
-    /* align-items: center; */
     display:  block;
-    margin-left: 50px;
+    /* margin-left: 50px; */
+    position: relative;
+    width: 60%;
+}
+
+.container-info {
+    margin-bottom: 20px;
 }
 
 #map-table {
-    /* display: flex; */
-    /* align-items: center;
-    justify-content: center; */
     text-align: center;
 }
 
-#map-table td:nth-child(1), #map-table td:nth-child(3){
-    /* display: flex; */
-    /* align-items: center;
-    justify-content: center; */
+#map-table td:nth-child(1){
     text-align: left;
 }
 
 .left-shape, .right-shape {
-    width: 12px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
     background-color: #32627B;
     display: flex;
     justify-content: center;
@@ -56,28 +47,26 @@ body {
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     border-style: solid;
-    /* border-color: lightgray; */
 }
 
 .gap {
-    width: 2px; /* Adjust this value for the gap width */
+    width: 0px; /* Adjust this value for the gap width */
     height: 2px;
 }
 
 .audio-inline {
-    /* display: inline-block;
-    width: 100px;
-    height: 30px;
-    vertical-align: middle;
-    margin-left: 20px;
-    margin-top: 10px; */
     display: none;
 }
 
 .audio-inline-container {
     display: flex;
-    /* justify-content: center; */
     align-items: center;
+}
+
+#play-target, #play-counterfactual {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: x-large;
 }
 
 td {
@@ -88,27 +77,7 @@ table {
     table-layout: fixed;
     border-spacing: 0px 15px;
     white-space: nowrap;
-    /* width: 80%; */
-    /* text-align: center; */
 }
-
-/* .triangle-left {
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-left: 15px solid #E1C44D;
-    border-left-style: solid;
-    border-top-style: solid;
-}
-
-.triangle-right {
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-left: 15px solid #D3722A;
-    border-left-style: solid;
-    border-top-style: solid;  
-} */
 
 .triangle-left {
     width: 15px;
@@ -126,7 +95,8 @@ table {
     border: 2px solid black;
 }
 
-
-#play-target, #play-counterfactual {
-    padding-left: 10px;
+.legend {
+    margin-top: 40px;
+    float: right;
+    right: 0;
 }

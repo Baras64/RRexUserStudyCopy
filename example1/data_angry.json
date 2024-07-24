@@ -1,16 +1,10 @@
 {
-    "text": "A Deafening Chirping Rent The Air",
+    "text": "A deafening chirping rent the air",
     "loudness": {
         "left": [
             "lightgray",
             "#157be0",
             "#2a95e5",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
             "lightgray",
             "lightgray",
             "lightgray"
@@ -19,12 +13,6 @@
             "lightgray",
             "#0749ba",
             "#0d61ce",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
-            "lightgray",
             "lightgray",
             "lightgray",
             "lightgray"
@@ -100,7 +88,6 @@
             "lightgray",
             "#2a95e5",
             "lightgray",
-            "lightgray",
             "lightgray"
         ],
         "right": [
@@ -117,7 +104,6 @@
         "left": [
             "lightgray",
             "#0749ba",
-            "lightgray",
             "lightgray",
             "lightgray",
             "lightgray",

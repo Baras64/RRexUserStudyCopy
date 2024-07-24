@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./index.css">
 </head>
+
 <body>
 
     <div class="container">
-        <h1 style="color: #3498DB">Actual Voice</h1>
-        <div>
+        <h1 style="color: #3498DB">What is the emotion?</h1>
+        <div class="container-info">
             <div>
-                <div class="audio-inline-container">
-                    <p>Play this voice clip</p>
+                <p id="audio-text"><i>"Loading...."</i></p>
+                <p>Spoken as 
                     <audio class="audio-inline" id="target-audio" controls></audio>
                     <i class="fa fa-play-circle" id="play-target"></i>
-                </div>
-                <p>The system has recognized this voice as <strong><u id="target-emotion"></u></strong></p>
-            </div>
-            <div class="audio-inline-container">
-                <!-- <p>The system has analyzed that, compared with <strong><u id="counterfactual-emotion"></u></strong> voice</p> -->
-                <p>The system has analyzed that, compared with 
-                    <strong>
-                        <select id="counterfactual-emotion-select">
-                            <!-- <option value="surprise">Surprise</option>
-                            <option value="angry">Angry</option>
-                            <option value="happy">Happy</option>
-                            <option value="neutral">Neutral</option>
-                            <option value="sad">Sad</option> -->
-                        </select>
-                    </strong> voice</p>
-                <audio class="audio-inline" id="counterfactual-audio" controls></audio>
-                <i class="fa fa-play-circle" id="play-counterfactual"></i>
+                    compared to
+                    <select id="counterfactual-emotion-select">
+                    </select>
+                    <audio class="audio-inline" id="counterfactual-audio" controls></audio>
+                    <i class="fa fa-play-circle" id="play-counterfactual"></i>
+                </p>
             </div>
         </div>
-        <p>The voice has the following:</p>
+        <!-- <p>The voice has the following:</p> -->
 
         <div class="container-table">
             <table id="map-table">
             </table>
-            <p style="font-size: 10px; float: right;">*click on the capsules to play the audio</p>
+            <div class="legend">
+                <div style="display: flex;">
+                    <div class="left-shape" style="margin-right: 5px; margin-bottom: 10px; border: none"></div>
+                    Actual audio word
+                </div>
+                <div style="display: flex;">
+                    <div class="right-shape" style="margin-right: 5px; border: none;"></div>
+                    Other audio word
+                </div>
+            </div>
+            <p style="font-size: 10px;">*click on the cells to play the audio</p>
         </div>
 
 
     </div>
-    
+
 </body>
 
 <script src="./index.js"></script>
+
 </html>

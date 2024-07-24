@@ -1,3 +1,5 @@
+let audioText = document.getElementById('audio-text');
+
 let targetAudio = document.getElementById('target-audio');
 let counterfactualAudio = document.getElementById('counterfactual-audio');
 
@@ -29,11 +31,11 @@ const idx2cueidx = {
 }
 
 const cueidx2cue = {
-    "loudness": "Loudness",
-    "average_pitch": "Average Pitch",
-    "pitch_range": "Pitch Range",
-    "speed": "Time",
-    "pauses": "Pauses"
+    "loudness": "loudness",
+    "average_pitch": "average pitch",
+    "pitch_range": "pitch range",
+    "speed": "time",
+    "pauses": "pauses"
 }
 
 const rlt2color = {
@@ -51,36 +53,70 @@ const rlt2color = {
 //     console.log("Counterfactual emotion changed to: ", counterfactualSelect.value);
 // });
 
-var baseDir = "example1"
+function addBothAudioPlayback(leftElement, rightElement, leftPath, rightPath) {
 
-function addAudioPlayback(element, path, isCapsule) {
-    let audio = new Audio(`${path}`);
-    element.addEventListener('click', function () {
-        audio.play();
+    leftElement.style.cursor = "pointer";
+    rightElement.style.cursor = "pointer";
+
+    let leftAudio = new Audio(`${leftPath}`);
+    let rightAudio = new Audio(`${rightPath}`);
+
+    leftElement.addEventListener('click', function () {
+        leftAudio.onended = function(){return}
+        rightAudio.onended = function(){return}
+        leftAudio.play();
+        leftAudio.onended = function () {
+            rightAudio.play();
+        }
     });
 
-    var oldColor = element.style.borderColor;
-
-    audio.addEventListener('play', function () {
-        element.style.borderColor = "#67ed37";
+    rightElement.addEventListener('click', function () {
+        leftAudio.onended = function(){return}
+        rightAudio.onended = function(){return}
+        rightAudio.play();
+        rightAudio.onended = function () {
+            leftAudio.play();
+        }
     });
 
-    audio.addEventListener('ended', function () {
-        element.style.borderColor = oldColor;
+    leftAudio.addEventListener('play', function () {
+        leftElement.style.borderColor = "#67ed37";
     });
 
-    element.style.cursor = "pointer"
-
-
-    element.addEventListener('mouseover', function () {
-        element.style.borderColor = "#d8ed82";
+    rightAudio.addEventListener('play', function () {
+        rightElement.style.borderColor = "#67ed37";
     });
 
-    element.addEventListener('mouseout', function () {
-        element.style.borderColor = oldColor;
+    leftAudio.addEventListener('ended', function () {
+        leftElement.style.borderColor = "white";
     });
 
-    // return element;
+    rightAudio.addEventListener('ended', function () {
+        rightElement.style.borderColor = "white";
+    });
+
+    leftElement.addEventListener('mouseover', function () {
+        leftElement.style.borderColor = "#d8ed82";
+    });
+
+    leftElement.addEventListener('mouseout', function () {
+        if (!leftAudio.paused) {
+            return
+        }
+        leftElement.style.borderColor = "white";
+    });
+
+    rightElement.addEventListener('mouseover', function () {
+        rightElement.style.borderColor = "#d8ed82";
+    });
+
+    rightElement.addEventListener('mouseout', function () {
+        if (!rightAudio.paused) {
+            return
+        }
+        rightElement.style.borderColor = "white";
+    });
+
 }
 
 function createCapsule(colorLeft, colorRight, audioPathLeft, audioPathRight) {
@@ -90,9 +126,9 @@ function createCapsule(colorLeft, colorRight, audioPathLeft, audioPathRight) {
     let leftShape = document.createElement('div');
     leftShape.classList.add('left-shape');
     leftShape.style.backgroundColor = colorLeft;
-    leftShape.style.borderColor = colorLeft;
+    leftShape.style.borderColor = "white";
 
-    addAudioPlayback(leftShape, audioPathLeft, true)
+    // addAudioPlayback(leftShape, audioPathLeft, true)
 
     let gap = document.createElement('div');
     gap.classList.add('gap');
@@ -100,9 +136,11 @@ function createCapsule(colorLeft, colorRight, audioPathLeft, audioPathRight) {
     let rightShape = document.createElement('div');
     rightShape.classList.add('right-shape');
     rightShape.style.backgroundColor = colorRight;
-    rightShape.style.borderColor = colorRight;
+    rightShape.style.borderColor = "white";
 
-    addAudioPlayback(rightShape, audioPathRight, true)
+    // addAudioPlayback(rightShape, audioPathRight, true)
+
+    addBothAudioPlayback(leftShape, rightShape, audioPathLeft, audioPathRight)
 
     container.appendChild(leftShape);
     container.appendChild(gap);
@@ -125,16 +163,18 @@ function createTriangle(colorLeft, colorRight, audioPathLeft, audioPathRight) {
     let leftShape = document.createElement('div');
     leftShape.classList.add('triangle-left');
     leftShape.style.backgroundColor = colorLeft;
-    leftShape.style.borderColor = colorLeft;
+    leftShape.style.borderColor = "white";
 
-    addAudioPlayback(leftShape, audioPathLeft, false)
+    // addAudioPlayback(leftShape, audioPathLeft, false)
 
     let rightShape = document.createElement('div');
     rightShape.classList.add('triangle-right');
     rightShape.style.backgroundColor = colorRight;
-    rightShape.style.borderColor = colorRight;
+    rightShape.style.borderColor = "white";
 
-    addAudioPlayback(rightShape, audioPathRight, false)
+    // addAudioPlayback(rightShape, audioPathRight, false)
+
+    addBothAudioPlayback(leftShape, rightShape, audioPathLeft, audioPathRight)
 
     container.appendChild(leftShape);
     container.appendChild(rightShape);
@@ -147,9 +187,9 @@ function createTriangle(colorLeft, colorRight, audioPathLeft, audioPathRight) {
 
 var emotions = ["angry", "surprise", "happy", "sad", "neutral"];
 
-function insertPaddedCell(row){
+function insertPaddedCell(row, padding = '30px') {
     let cell = row.insertCell();
-    cell.style.width = "30px";
+    cell.style.width = padding;
 }
 
 function loadTable(filename) {
@@ -181,17 +221,19 @@ function loadTable(filename) {
                 audioCf.classList.add('fa-play-circle');
             }
 
-            targetEmotion.innerText = data.target_emotion;
+            // targetEmotion.innerText = data.target_emotion;
             // counterfactualEmotion.innerText = data.counterfactual_emotion;
 
             audio_text = data.text;
+
+            audioText.innerHTML = `<i>"${audio_text}"</i>`;
 
             words = audio_text.split(" ");
 
             let row = mapTable.insertRow();
 
             cell = row.insertCell();
-            cell = row.insertCell();
+            cell.innerText = "The actual voice has the following for these words";
             cell = row.insertCell();
             cell = row.insertCell();
 
@@ -201,6 +243,8 @@ function loadTable(filename) {
                 row.insertCell();
             });
 
+            row = mapTable.insertRow();
+
             for (let index = 0; index < 5; index++) {
                 cueData = data[idx2cueidx[index]]
                 let row = mapTable.insertRow();
@@ -208,12 +252,18 @@ function loadTable(filename) {
                 cell = row.insertCell();
                 rltText = cueData.rlt
                 cell.innerText = cueData.rlt;
-                cell.style.color = rlt2color[rltText];
+                cell.innerHTML = `<span style='color: ${rlt2color[rltText]}'>${cueData.rlt}</span> ${cueidx2cue[idx2cueidx[index]]}`;
 
-                insertPaddedCell(row);
+                if (cueData.rlt == "Similar") {
+                    cell.title = `Actual has ${cueData.rlt} ${cueidx2cue[idx2cueidx[index]]} to ${data.counterfactual_emotion}`;
+                } else {
+                    cell.title = `Actual has ${cueData.rlt} ${cueidx2cue[idx2cueidx[index]]} than ${data.counterfactual_emotion}`;
+                }
 
-                cell = row.insertCell();
-                cell.innerText = cueidx2cue[idx2cueidx[index]];
+                insertPaddedCell(row, '5px');
+
+                // cell = row.insertCell();
+                // cell.innerText = cueidx2cue[idx2cueidx[index]];
 
                 insertPaddedCell(row);
 
@@ -253,8 +303,8 @@ var targetEmo = ""
 
 async function checkFile(emotions) {
     let response;
-    for(let i = 0; i < emotions.length; i++) {
-        
+    for (let i = 0; i < emotions.length; i++) {
+
         response = await fetch(`./${baseDir}/data_${emotions[i]}.json`);
         if (response.ok) {
             console.log("File exists")
@@ -265,6 +315,8 @@ async function checkFile(emotions) {
         }
     }
 }
+
+var baseDir = "example2"
 
 checkFile(emotions).then(() => {
 
