@@ -96,7 +96,8 @@ table {
 }
 
 .legend {
-    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
     float: right;
     right: 0;
 }
