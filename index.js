@@ -263,7 +263,6 @@ function loadTable(filename) {
                 });
                 row.addEventListener('mouseout', function () {
                     Array.from(mapTable.rows).forEach(row => {
-                        console.log(row.value)
                         if(row.value <= 4 && row.value >= 0) {
                             if (row.value != index) {
                                 row.style.opacity = 1;
@@ -339,7 +338,7 @@ async function checkFile(emotions) {
     }
 }
 
-var baseDir = "example2"
+var baseDir = `example${new URLSearchParams(window.location.search).get("example")}`
 
 checkFile(emotions).then(() => {
 
@@ -354,5 +353,4 @@ checkFile(emotions).then(() => {
     loadTable(`./${baseDir}/data_${newEmotions[0]}.json`);
 });
 // loadTable("");
-
 
