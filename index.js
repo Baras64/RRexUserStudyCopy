@@ -202,23 +202,25 @@ function loadTable(filename) {
             counterfactualAudio.src = data.counterfactual_audio_path;
 
             targetAudio.onplay = function () {
-                audioTarget.classList.remove('fa-play-circle');
-                audioTarget.classList.add('fa-pause-circle');
+                audioTarget.classList.remove('fa-play');
+                audioTarget.classList.add('fa-pause');
             }
 
             targetAudio.onended = function () {
-                audioTarget.classList.remove('fa-pause-circle');
-                audioTarget.classList.add('fa-play-circle');
+                audioTarget.classList.remove('fa-pause');
+                audioTarget.classList.add('fa-play');
             }
 
             counterfactualAudio.onplay = function () {
-                audioCf.classList.remove('fa-play-circle');
-                audioCf.classList.add('fa-pause-circle');
+                // audioCf.classList.remove('fa-play-circle');
+                // audioCf.classList.add('fa-pause-circle');
+                audioCf.classList.remove('fa-play');
+                audioCf.classList.add('fa-pause');
             }
 
             counterfactualAudio.onended = function () {
-                audioCf.classList.remove('fa-pause-circle');
-                audioCf.classList.add('fa-play-circle');
+                audioCf.classList.remove('fa-pause');
+                audioCf.classList.add('fa-play');
             }
 
             // targetEmotion.innerText = data.target_emotion;
@@ -314,6 +316,7 @@ function loadTable(filename) {
 counterfactualSelect.addEventListener('change', function () {
 
     let emotion = counterfactualSelect.value;
+    console.log("Counterfactual emotion changed to: ", emotion);
 
     let filename = `./${baseDir}/data_${emotion}.json`;
     loadTable(filename);
