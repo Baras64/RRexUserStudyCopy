@@ -1,0 +1,161 @@
+{
+    "text": "You are not a runaway who are you",
+    "loudness": {
+        "left": [
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "rgb(0, 15, 56)",
+            "rgb(0, 13, 55)",
+            "lightgray",
+            "rgb(0, 23, 64)"
+        ],
+        "right": [
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "rgb(0, 17, 58)",
+            "rgb(0, 15, 57)",
+            "lightgray",
+            "rgb(69, 170, 227)"
+        ],
+        "rlt": "Lower"
+    },
+    "average_pitch": {
+        "left": [
+            "lightgray",
+            "lightgray",
+            "rgb(0, 96, 147)",
+            "lightgray",
+            "rgb(0, 33, 76)",
+            "rgb(0, 36, 81)",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "lightgray",
+            "lightgray",
+            "rgb(0, 116, 169)",
+            "lightgray",
+            "rgb(0, 106, 159)",
+            "rgb(0, 123, 177)",
+            "lightgray",
+            "lightgray"
+        ],
+        "rlt": "Lower"
+    },
+    "pitch_range": {
+        "left": [
+            "lightgray",
+            "lightgray",
+            "rgb(0, 96, 147)",
+            "lightgray",
+            "rgb(0, 33, 76)",
+            "rgb(0, 36, 81)",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "lightgray",
+            "lightgray",
+            "rgb(0, 116, 169)",
+            "lightgray",
+            "rgb(0, 106, 159)",
+            "rgb(0, 123, 177)",
+            "lightgray",
+            "lightgray"
+        ],
+        "rlt": "Lower"
+    },
+    "speed": {
+        "left": [
+            "lightgray",
+            "rgb(0, 18, 59)",
+            "lightgray",
+            "rgb(0, 13, 55)",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "lightgray",
+            "rgb(0, 18, 59)",
+            "lightgray",
+            "rgb(0, 65, 113)",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "rlt": "Longer"
+    },
+    "pauses": {
+        "left": [
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "rgb(0, 13, 55)",
+            "lightgray",
+            "lightgray",
+            "white"
+        ],
+        "right": [
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "rgb(0, 13, 55)",
+            "lightgray",
+            "lightgray",
+            "white"
+        ],
+        "rlt": "Higher"
+    },
+    "target_emotion": "Neutral",
+    "counterfactual_emotion": "Surprise",
+    "tgt_word_clips": [
+        "example4_privacy/word_clips_4/tgt_you_0.wav",
+        "example4_privacy/word_clips_4/tgt_are_1.wav",
+        "example4_privacy/word_clips_4/tgt_not_2.wav",
+        "example4_privacy/word_clips_4/tgt_to_3.wav",
+        "example4_privacy/word_clips_4/tgt_away_5.wav",
+        "example4_privacy/word_clips_4/tgt_who_6.wav",
+        "example4_privacy/word_clips_4/tgt_are_7.wav",
+        "example4_privacy/word_clips_4/tgt_you_8.wav"
+    ],
+    "cf_word_clips": [
+        "example4_privacy/word_clips_4/cf_you_0.wav",
+        "example4_privacy/word_clips_4/cf_are_1.wav",
+        "example4_privacy/word_clips_4/cf_not_2.wav",
+        "example4_privacy/word_clips_4/cf_a_3.wav",
+        "example4_privacy/word_clips_4/cf_runaway_4.wav",
+        "example4_privacy/word_clips_4/cf_who_5.wav",
+        "example4_privacy/word_clips_4/cf_are_6.wav",
+        "example4_privacy/word_clips_4/cf_you_7.wav"
+    ],
+    "tgt_pause_word_clips": [
+        "example4_privacy/word_clips_4/tgt_consecutive_you_are_0.wav",
+        "example4_privacy/word_clips_4/tgt_consecutive_are_not_1.wav",
+        "example4_privacy/word_clips_4/tgt_consecutive_not_to_2.wav",
+        "example4_privacy/word_clips_4/tgt_consecutive_to_run_3.wav",
+        "example4_privacy/word_clips_4/tgt_consecutive_run_away_4.wav",
+        "example4_privacy/word_clips_4/tgt_consecutive_away_who_5.wav",
+        "example4_privacy/word_clips_4/tgt_consecutive_who_are_6.wav",
+        "example4_privacy/word_clips_4/tgt_consecutive_are_you_7.wav"
+    ],
+    "cf_pause_word_clips": [
+        "example4_privacy/word_clips_4/cf_consecutive_you_are_0.wav",
+        "example4_privacy/word_clips_4/cf_consecutive_are_not_1.wav",
+        "example4_privacy/word_clips_4/cf_consecutive_not_a_2.wav",
+        "example4_privacy/word_clips_4/cf_consecutive_a_runaway_3.wav",
+        "example4_privacy/word_clips_4/cf_consecutive_runaway_who_4.wav",
+        "example4_privacy/word_clips_4/cf_consecutive_who_are_5.wav",
+        "example4_privacy/word_clips_4/cf_consecutive_are_you_6.wav"
+    ],
+    "target_audio_path": "example4_privacy/word_clips_4/tgt_4.wav",
+    "counterfactual_audio_path": "example4_privacy/word_clips_4/cf_4.wav"
+}
