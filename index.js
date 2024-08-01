@@ -58,6 +58,8 @@ function addBothAudioPlayback(leftElement, rightElement, leftPath, rightPath) {
     leftElement.style.cursor = "pointer";
     rightElement.style.cursor = "pointer";
 
+    oldColor = leftElement.style.backgroundColor;
+
     let leftAudio = new Audio(`${leftPath}`);
     let rightAudio = new Audio(`${rightPath}`);
 
@@ -96,7 +98,13 @@ function addBothAudioPlayback(leftElement, rightElement, leftPath, rightPath) {
     });
 
     leftElement.addEventListener('mouseover', function () {
-        leftElement.style.borderColor = "#d8ed82";
+        // leftElement.style.borderColor = "#d8ed82";
+        // if (oldColor == "lightgray"){
+        //     leftElement.style.borderColor = "lightgray";
+        // } else {
+        //     leftElement.style.borderColor = "rgb(69, 170, 227)";
+        // }
+        leftElement.style.borderColor = leftElement.style.backgroundColor;
     });
 
     leftElement.addEventListener('mouseout', function () {
@@ -107,7 +115,9 @@ function addBothAudioPlayback(leftElement, rightElement, leftPath, rightPath) {
     });
 
     rightElement.addEventListener('mouseover', function () {
-        rightElement.style.borderColor = "#d8ed82";
+        // rightElement.style.borderColor = "#d8ed82";
+        // rightElement.style.borderColor = "rgb(69, 170, 227)";
+        rightElement.style.borderColor = rightElement.style.backgroundColor;
     });
 
     rightElement.addEventListener('mouseout', function () {
@@ -192,7 +202,7 @@ function insertPaddedCell(row, padding = '30px') {
     cell.style.width = padding;
 }
 
-function loadTable(filename) {
+function loadTable(filename, isPlay=false) {
 
     mapTable.innerHTML = "";
     fetch(filename)
@@ -235,7 +245,7 @@ function loadTable(filename) {
             let row = mapTable.insertRow();
 
             cell = row.insertCell();
-            cell.innerText = "The actual voice has the following for these words";
+            cell.innerHTML = "The actual voice has the </br> following for these words";
             cell = row.insertCell();
             cell = row.insertCell();
 
@@ -276,7 +286,8 @@ function loadTable(filename) {
                 cell = row.insertCell();
                 rltText = cueData.rlt
                 cell.innerText = cueData.rlt;
-                cell.innerHTML = `<span style='color: ${rlt2color[rltText]}'>${cueData.rlt}</span> ${cueidx2cue[idx2cueidx[index]]}`;
+                // cell.innerHTML = `<span style='color: ${rlt2color[rltText]}'>${cueData.rlt}</span> ${cueidx2cue[idx2cueidx[index]]}`;
+                cell.innerHTML = `<b>${cueData.rlt}</b> ${cueidx2cue[idx2cueidx[index]]}`;
 
                 if (cueData.rlt == "Similar") {
                     cell.title = `Actual has ${cueData.rlt} ${cueidx2cue[idx2cueidx[index]]} to ${data.counterfactual_emotion}`;
@@ -297,7 +308,7 @@ function loadTable(filename) {
                     let cell = row.insertCell();
 
                     if (index == 4) {
-                        capsule = createTriangle(colorLeft, colorRight, data.tgt_word_clips[idx], data.cf_pause_word_clips[idx]);
+                        capsule = createTriangle(colorLeft, colorRight, data.tgt_pause_word_clips[idx], data.cf_pause_word_clips[idx]);
                     } else {
                         capsule = createCapsule(colorLeft, colorRight, data.tgt_word_clips[idx], data.cf_word_clips[idx]);
                     }
@@ -307,6 +318,10 @@ function loadTable(filename) {
 
                 });
 
+            }
+
+            if(isPlay){
+                counterfactualAudio.play();
             }
 
         });
@@ -319,8 +334,7 @@ counterfactualSelect.addEventListener('change', function () {
     console.log("Counterfactual emotion changed to: ", emotion);
 
     let filename = `./${baseDir}/data_${emotion}.json`;
-    loadTable(filename);
-
+    loadTable(filename, isPlay=true);
 });
 
 var newEmotions = [];

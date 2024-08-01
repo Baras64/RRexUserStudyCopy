@@ -11,7 +11,7 @@ body {
     display:  block;
     /* margin-left: 50px; */
     position: relative;
-    width: 60%;
+    width: fit-content;
 }
 
 .container-info {
@@ -29,7 +29,8 @@ body {
 .left-shape, .right-shape {
     width: 15px;
     height: 15px;
-    background-color: #32627B;
+    /* background-color: #32627B; */
+    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,6 +40,9 @@ body {
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     border-style: solid;
+    border-width: 5px;
+    border-right-width: 2px;
+    background-color: "rgb(69, 170, 227)";
     /* border-color: lightgray; */
 }
 
@@ -46,6 +50,9 @@ body {
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     border-style: solid;
+    border-width: 5px;
+    border-left-width: 2px;
+    background-color: "rgb(69, 170, 227)";
 }
 
 .gap {
@@ -83,7 +90,7 @@ table {
     height: 15px;
     background-color: #E1C44D; 
     clip-path: polygon(100% 100%, 0% 100%, 0% 0%);
-    border: 2px solid black;
+    border: 5px solid black;
 }
 
 .triangle-right {
@@ -91,7 +98,7 @@ table {
     height: 15px;
     background-color: #D3722A; /* Orange color */
     clip-path: polygon(100% 100%, 0% 100%, 0% 0%);
-    border: 2px solid black;
+    border: 5px solid black;
 }
 
 .legend {

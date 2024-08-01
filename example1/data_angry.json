@@ -4,7 +4,7 @@
         "left": [
             "lightgray",
             "lightgray",
-            "rgb(0, 13, 55)",
+            "rgb(69, 170, 227)",
             "lightgray",
             "lightgray",
             "lightgray"
@@ -12,7 +12,7 @@
         "right": [
             "lightgray",
             "lightgray",
-            "rgb(0, 18, 59)",
+            "rgb(69, 170, 227)",
             "lightgray",
             "lightgray",
             "lightgray"
@@ -23,7 +23,7 @@
         "left": [
             "lightgray",
             "lightgray",
-            "rgb(0, 33, 76)",
+            "rgb(69, 170, 227)",
             "lightgray",
             "lightgray",
             "lightgray"
@@ -31,7 +31,7 @@
         "right": [
             "lightgray",
             "lightgray",
-            "rgb(0, 82, 133)",
+            "rgb(69, 170, 227)",
             "lightgray",
             "lightgray",
             "lightgray"
@@ -42,7 +42,7 @@
         "left": [
             "lightgray",
             "lightgray",
-            "rgb(0, 33, 76)",
+            "rgb(69, 170, 227)",
             "lightgray",
             "lightgray",
             "lightgray"
@@ -50,7 +50,7 @@
         "right": [
             "lightgray",
             "lightgray",
-            "rgb(0, 82, 133)",
+            "rgb(69, 170, 227)",
             "lightgray",
             "lightgray",
             "lightgray"
@@ -62,7 +62,7 @@
             "lightgray",
             "lightgray",
             "lightgray",
-            "rgb(0, 13, 55)",
+            "rgb(69, 170, 227)",
             "rgb(69, 170, 227)",
             "lightgray"
         ],
@@ -70,8 +70,8 @@
             "lightgray",
             "lightgray",
             "lightgray",
-            "rgb(0, 28, 70)",
-            "rgb(0, 73, 122)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
             "lightgray"
         ],
         "rlt": "Similar"
@@ -82,15 +82,15 @@
             "lightgray",
             "rgb(69, 170, 227)",
             "lightgray",
-            "rgb(0, 13, 55)",
+            "rgb(69, 170, 227)",
             "white"
         ],
         "right": [
             "lightgray",
             "lightgray",
-            "rgb(0, 13, 55)",
+            "rgb(69, 170, 227)",
             "lightgray",
-            "rgb(0, 42, 87)",
+            "rgb(69, 170, 227)",
             "white"
         ],
         "rlt": "Similar"
