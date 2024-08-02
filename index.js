@@ -82,11 +82,13 @@ function addBothAudioPlayback(leftElement, rightElement, leftPath, rightPath) {
     });
 
     leftAudio.addEventListener('play', function () {
-        leftElement.style.borderColor = "#67ed37";
+        // leftElement.style.borderColor = "#67ed37";
+        leftElement.style.borderColor = "orange";
     });
 
     rightAudio.addEventListener('play', function () {
-        rightElement.style.borderColor = "#67ed37";
+        // rightElement.style.borderColor = "#67ed37";
+        rightElement.style.borderColor = "orange";
     });
 
     leftAudio.addEventListener('ended', function () {
@@ -135,7 +137,12 @@ function createCapsule(colorLeft, colorRight, audioPathLeft, audioPathRight) {
 
     let leftShape = document.createElement('div');
     leftShape.classList.add('left-shape');
-    leftShape.style.backgroundColor = colorLeft;
+    // leftShape.style.backgroundColor = colorLeft;
+    if(colorLeft == "lightgray"){
+        leftShape.style.backgroundColor = "lightgray";
+    }else {
+        leftShape.style.backgroundColor = "rgb(69, 170, 227)";
+    }
     leftShape.style.borderColor = "white";
 
     // addAudioPlayback(leftShape, audioPathLeft, true)
@@ -145,7 +152,12 @@ function createCapsule(colorLeft, colorRight, audioPathLeft, audioPathRight) {
 
     let rightShape = document.createElement('div');
     rightShape.classList.add('right-shape');
-    rightShape.style.backgroundColor = colorRight;
+    // rightShape.style.backgroundColor = colorRight;
+    if(colorRight == "lightgray"){
+        rightShape.style.backgroundColor = "lightgray";
+    }else {
+        rightShape.style.backgroundColor = "rgb(69, 170, 227)";
+    }
     rightShape.style.borderColor = "white";
 
     // addAudioPlayback(rightShape, audioPathRight, true)
@@ -172,14 +184,24 @@ function createTriangle(colorLeft, colorRight, audioPathLeft, audioPathRight) {
 
     let leftShape = document.createElement('div');
     leftShape.classList.add('triangle-left');
-    leftShape.style.backgroundColor = colorLeft;
+    // leftShape.style.backgroundColor = colorLeft;
+    if(colorLeft == "lightgray"){
+        leftShape.style.backgroundColor = "lightgray";
+    }else {
+        leftShape.style.backgroundColor = "rgb(69, 170, 227)";
+    }
     leftShape.style.borderColor = "white";
 
     // addAudioPlayback(leftShape, audioPathLeft, false)
 
     let rightShape = document.createElement('div');
     rightShape.classList.add('triangle-right');
-    rightShape.style.backgroundColor = colorRight;
+    // rightShape.style.backgroundColor = colorRight;
+    if(colorRight == "lightgray"){
+        rightShape.style.backgroundColor = "lightgray";
+    }else {
+        rightShape.style.backgroundColor = "rgb(69, 170, 227)";
+    }
     rightShape.style.borderColor = "white";
 
     // addAudioPlayback(rightShape, audioPathRight, false)
