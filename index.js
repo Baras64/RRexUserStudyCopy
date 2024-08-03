@@ -66,8 +66,12 @@ function addBothAudioPlayback(leftElement, rightElement, leftPath, rightPath) {
     leftElement.addEventListener('click', function () {
         leftAudio.onended = function () { return }
         rightAudio.onended = function () { return }
+        leftElement.children[0].classList.remove('fa-play');
+        leftElement.children[0].classList.add('fa-pause');
         leftAudio.play();
         leftAudio.onended = function () {
+            leftElement.children[0].classList.remove('fa-pause');
+            leftElement.children[0].classList.add('fa-play');
             rightAudio.play();
         }
     });
@@ -75,58 +79,70 @@ function addBothAudioPlayback(leftElement, rightElement, leftPath, rightPath) {
     rightElement.addEventListener('click', function () {
         leftAudio.onended = function () { return }
         rightAudio.onended = function () { return }
+        rightElement.children[0].classList.remove('fa-play');
+        rightElement.children[0].classList.add('fa-pause');
         rightAudio.play();
         rightAudio.onended = function () {
+            rightElement.children[0].classList.add('fa-play');
+            rightElement.children[0].classList.remove('fa-pause');
             leftAudio.play();
         }
     });
 
     leftAudio.addEventListener('play', function () {
         // leftElement.style.borderColor = "#67ed37";
+        leftElement.children[0].style.display = "block";
+        leftElement.children[0].classList.remove('fa-play');
+        leftElement.children[0].classList.add('fa-pause');
         leftElement.style.borderColor = "orange";
     });
 
     rightAudio.addEventListener('play', function () {
         // rightElement.style.borderColor = "#67ed37";
+        rightElement.children[0].style.display = "block";
+        rightElement.children[0].classList.remove('fa-play');
+        rightElement.children[0].classList.add('fa-pause');
         rightElement.style.borderColor = "orange";
     });
 
     leftAudio.addEventListener('ended', function () {
+        leftElement.children[0].style.display = "none";
+        leftElement.children[0].classList.remove('fa-pause');
+        leftElement.children[0].classList.add('fa-play');
         leftElement.style.borderColor = "white";
     });
 
     rightAudio.addEventListener('ended', function () {
+        rightElement.children[0].style.display = "none";
+        rightElement.children[0].classList.remove('fa-pause');
+        rightElement.children[0].classList.add('fa-play');
         rightElement.style.borderColor = "white";
     });
 
     leftElement.addEventListener('mouseover', function () {
-        // leftElement.style.borderColor = "#d8ed82";
-        // if (oldColor == "lightgray"){
-        //     leftElement.style.borderColor = "lightgray";
-        // } else {
-        //     leftElement.style.borderColor = "rgb(69, 170, 227)";
-        // }
-        leftElement.style.borderColor = leftElement.style.backgroundColor;
+        leftElement.children[0].style.display = "block";
+        // leftElement.style.borderColor = leftElement.style.backgroundColor;
     });
 
     leftElement.addEventListener('mouseout', function () {
         if (!leftAudio.paused) {
             return
         }
-        leftElement.style.borderColor = "white";
+        // leftElement.style.borderColor = "white";
+        leftElement.children[0].style.display = "none";
     });
 
     rightElement.addEventListener('mouseover', function () {
-        // rightElement.style.borderColor = "#d8ed82";
-        // rightElement.style.borderColor = "rgb(69, 170, 227)";
-        rightElement.style.borderColor = rightElement.style.backgroundColor;
+        rightElement.children[0].style.display = "block";
+        // rightElement.style.borderColor = rightElement.style.backgroundColor;
     });
 
     rightElement.addEventListener('mouseout', function () {
         if (!rightAudio.paused) {
             return
         }
-        rightElement.style.borderColor = "white";
+        rightElement.children[0].style.display = "none";
+        // rightElement.style.borderColor = "white";
     });
 
 }
@@ -136,14 +152,17 @@ function createCapsule(colorLeft, colorRight, audioPathLeft, audioPathRight) {
     container.classList.add('container-capsule');
 
     let leftShape = document.createElement('div');
+    let leftPlayBtn = document.createElement('i');
+    leftPlayBtn.classList.add('fa');
+    leftPlayBtn.classList.add('fa-play');
+    leftPlayBtn.classList.add('left-play-btn');
+    leftPlayBtn.style.display = "none";
+
     leftShape.classList.add('left-shape');
-    // leftShape.style.backgroundColor = colorLeft;
-    if(colorLeft == "lightgray"){
-        leftShape.style.backgroundColor = "lightgray";
-    }else {
-        leftShape.style.backgroundColor = "rgb(69, 170, 227)";
-    }
+    leftShape.style.backgroundColor = colorLeft;
     leftShape.style.borderColor = "white";
+
+    leftShape.appendChild(leftPlayBtn)
 
     // addAudioPlayback(leftShape, audioPathLeft, true)
 
@@ -151,14 +170,17 @@ function createCapsule(colorLeft, colorRight, audioPathLeft, audioPathRight) {
     gap.classList.add('gap');
 
     let rightShape = document.createElement('div');
+    let rightPlayBtn = document.createElement('i');
+    rightPlayBtn.classList.add('fa');
+    rightPlayBtn.classList.add('fa-play');
+    rightPlayBtn.classList.add('right-play-btn');
+    rightPlayBtn.style.display = "none";
+
     rightShape.classList.add('right-shape');
-    // rightShape.style.backgroundColor = colorRight;
-    if(colorRight == "lightgray"){
-        rightShape.style.backgroundColor = "lightgray";
-    }else {
-        rightShape.style.backgroundColor = "rgb(69, 170, 227)";
-    }
+    rightShape.style.backgroundColor = colorRight;
     rightShape.style.borderColor = "white";
+
+    rightShape.appendChild(rightPlayBtn);
 
     // addAudioPlayback(rightShape, audioPathRight, true)
 
@@ -183,26 +205,32 @@ function createTriangle(colorLeft, colorRight, audioPathLeft, audioPathRight) {
     container.classList.add('container-capsule');
 
     let leftShape = document.createElement('div');
+
+    let leftPlayBtn = document.createElement('i');
+    leftPlayBtn.classList.add('fa');
+    leftPlayBtn.classList.add('fa-play');
+    leftPlayBtn.classList.add('triangle-play-btn');
+    leftPlayBtn.style.display = "none";
+
     leftShape.classList.add('triangle-left');
-    // leftShape.style.backgroundColor = colorLeft;
-    if(colorLeft == "lightgray"){
-        leftShape.style.backgroundColor = "lightgray";
-    }else {
-        leftShape.style.backgroundColor = "rgb(69, 170, 227)";
-    }
-    leftShape.style.borderColor = "white";
+    leftShape.style.backgroundColor = colorLeft;
+    // leftShape.style.borderColor = "white";
+    leftShape.appendChild(leftPlayBtn);
 
     // addAudioPlayback(leftShape, audioPathLeft, false)
 
     let rightShape = document.createElement('div');
+
+    let rightPlayBtn = document.createElement('i');
+    rightPlayBtn.classList.add('fa');
+    rightPlayBtn.classList.add('fa-play');
+    rightPlayBtn.classList.add('triangle-play-btn');
+    rightPlayBtn.style.display = "none";
+
     rightShape.classList.add('triangle-right');
-    // rightShape.style.backgroundColor = colorRight;
-    if(colorRight == "lightgray"){
-        rightShape.style.backgroundColor = "lightgray";
-    }else {
-        rightShape.style.backgroundColor = "rgb(69, 170, 227)";
-    }
-    rightShape.style.borderColor = "white";
+    rightShape.style.backgroundColor = colorRight;
+    // rightShape.style.borderColor = "white";
+    rightShape.appendChild(rightPlayBtn);
 
     // addAudioPlayback(rightShape, audioPathRight, false)
 

@@ -27,10 +27,10 @@ body {
 }
 
 .left-shape, .right-shape {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     /* background-color: #32627B; */
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,8 +40,9 @@ body {
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     border-style: solid;
-    border-width: 5px;
-    border-right-width: 2px;
+    border-width: 0px;
+    /* border-width: 5px; */
+    /* border-right-width: 2px; */
     background-color: "rgb(69, 170, 227)";
     /* border-color: lightgray; */
 }
@@ -50,14 +51,30 @@ body {
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     border-style: solid;
-    border-width: 5px;
-    border-left-width: 2px;
+    border-width: 0px;
+    /* border-width: 5px; */
+    /* border-left-width: 2px; */
     background-color: "rgb(69, 170, 227)";
 }
 
 .gap {
-    width: 0px; /* Adjust this value for the gap width */
+    width: 3px; /* Adjust this value for the gap width */
     height: 2px;
+}
+
+.left-play-btn {
+    top: 50%;
+    left: 0%;
+    font-size: 12px;
+    margin-left: 2%;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.right-play-btn {
+    top: 50%;
+    left: 80%;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .audio-inline {
@@ -86,19 +103,27 @@ table {
 }
 
 .triangle-left {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     /* background-color: #E1C44D;  */
     clip-path: polygon(100% 100%, 0% 100%, 0% 0%);
-    border: 5px solid white;
+    /* border: 5px solid white; */
 }
 
 .triangle-right {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     /* background-color: #D3722A; */
     clip-path: polygon(100% 100%, 0% 100%, 0% 0%);
-    border: 5px solid white;
+    /* border: 5px solid white; */
+}
+
+.triangle-play-btn {
+    font-size: 10px;
+    position: relative;
+    margin-top: 8px;
+    margin-right: 8px;
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .legend {
