@@ -354,7 +354,9 @@ function loadTable(filename, isPlay=false) {
 
                 words.forEach((element, idx) => {
                     let colorLeft = cueData["left"][idx];
-                    let colorRight = cueData["right"][idx];
+                    // let colorRight = cueData["right"][idx];
+                    //Intentionally kept it to left
+                    let colorRight = cueData["left"][idx];
                     let cell = row.insertCell();
 
                     if (index == 4) {
