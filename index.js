@@ -252,7 +252,7 @@ function insertPaddedCell(row, padding = '30px') {
     cell.style.width = padding;
 }
 
-function loadTable(filename, isPlay=false) {
+function loadTable(filename, isPlay = false) {
 
     mapTable.innerHTML = "";
     fetch(filename)
@@ -318,7 +318,7 @@ function loadTable(filename, isPlay=false) {
                 row.addEventListener('mouseover', function () {
 
                     Array.from(mapTable.rows).forEach(row => {
-                        if(row.value <= 4 && row.value >= 0) {
+                        if (row.value <= 4 && row.value >= 0) {
                             if (row.value != index) {
                                 row.style.opacity = 0.3;
                                 row.style.transition = "opacity 0.3s";
@@ -329,7 +329,7 @@ function loadTable(filename, isPlay=false) {
                 });
                 row.addEventListener('mouseout', function () {
                     Array.from(mapTable.rows).forEach(row => {
-                        if(row.value <= 4 && row.value >= 0) {
+                        if (row.value <= 4 && row.value >= 0) {
                             if (row.value != index) {
                                 row.style.opacity = 1;
                             }
@@ -343,10 +343,27 @@ function loadTable(filename, isPlay=false) {
                 // cell.innerHTML = `<span style='color: ${rlt2color[rltText]}'>${cueData.rlt}</span> ${cueidx2cue[idx2cueidx[index]]}`;
                 cell.innerHTML = `<b style="color:rgb(69, 170, 227)">${cueData.rlt}</b> ${cueidx2cue[idx2cueidx[index]]}`;
 
+                cell.classList.add("tooltip");
+
+
+                possibleEmotions = emotionsMap[data.counterfactual_emotion.toLowerCase()][cueidx2cue[idx2cueidx[index].toLowerCase()]][cueData.rlt.toLowerCase()]
+                
+                if(possibleEmotions == undefined){
+                    possibleEmotions = [" "]
+                }
+
                 if (cueData.rlt == "Similar") {
-                    cell.title = `Actual has ${cueData.rlt} ${cueidx2cue[idx2cueidx[index]]} to ${data.counterfactual_emotion}`;
+                    // cell.title = `Actual has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} to ${data.counterfactual_emotion}`;
+                    let elem = document.createElement('span');
+                    elem.classList.add("tooltiptext");
+                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} than ${data.counterfactual_emotion} <br> Actual could be: <u>${possibleEmotions.join("</u>, <u>")}</u>`;
+                    cell.appendChild(elem);
                 } else {
-                    cell.title = `Actual has ${cueData.rlt} ${cueidx2cue[idx2cueidx[index]]} than ${data.counterfactual_emotion}`;
+                    // cell.title = `Actual has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} than ${data.counterfactual_emotion}`;
+                    let elem = document.createElement('span');
+                    elem.classList.add("tooltiptext");
+                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} than ${data.counterfactual_emotion} <br> Actual could be: <u>${possibleEmotions.join("</u>, <u>")}</u>`;
+                    cell.appendChild(elem);
                 }
 
                 insertPaddedCell(row, '5px');
@@ -376,7 +393,7 @@ function loadTable(filename, isPlay=false) {
 
             }
 
-            if(isPlay){
+            if (isPlay) {
                 counterfactualAudio.play();
             }
 
@@ -390,7 +407,7 @@ counterfactualSelect.addEventListener('change', function () {
     console.log("Counterfactual emotion changed to: ", emotion);
 
     let filename = `./${baseDir}/data_${emotion}.json`;
-    loadTable(filename, isPlay=true);
+    loadTable(filename, isPlay = true);
 });
 
 var newEmotions = [];
@@ -426,4 +443,145 @@ checkFile(emotions).then(() => {
     loadTable(`./${baseDir}/data_${newEmotions[0]}.json`);
 });
 // loadTable("");
+
+
+
+
+let emotionsMap = {
+    'angry': {
+        'loudness': {
+            'similar': ['angry'],
+            'lower': ['happy', 'sad', 'neutral'],
+            'higher': ['surprise']
+        },
+        'average pitch': {
+            'similar': ['angry', 'happy'],
+            'lower': ['neutral', 'sad'],
+            'higher': ['surprise']
+        },
+        'pitch range': {
+            'similar': ['angry', 'surprise'],
+            'lower': ['neutral', 'sad'],
+            'higher': ['happy']
+        },
+        'time': {
+            'similar': ['angry'],
+            'longer': ['sad'],
+            'shorter': ['happy', 'neutral', 'surprise']
+        },
+        'pauses': {
+            'similar': ['angry'],
+            'lower': ['happy', 'neutral', 'sad', 'surprise'],
+            'higher': ['']
+        }
+    },
+    'surprise': {
+        'loudness': {
+            'similar': ['surprise'],
+            'lower': ['angry', 'happy', 'neutral', 'sad'],
+            'higher': ['']
+        },
+        'average pitch': {
+            'similar': ['surprise'],
+            'lower': ['angry', 'happy', 'neutral', 'sad'],
+            'higher': ['']
+        },
+        'pitch range': {
+            'similar': ['angry', 'surprise'],
+            'lower': ['neutral', 'sad'],
+            'higher': ['happy']
+        },
+        'time': {
+            'similar': ['happy', 'surprise'],
+            'longer': ['angry', 'sad'],
+            'shorter': ['neutral']
+        },
+        'pauses': {
+            'similar': ['happy', 'surprise'],
+            'lower': ['neutral'],
+            'higher': ['angry', 'sad']
+        }
+    },
+    'happy': {
+        'loudness': {
+            'similar': ['happy'],
+            'lower': ['neutral', 'sad'],
+            'higher': ['angry', 'surprise']
+        },
+        'average pitch': {
+            'similar': ['angry', 'happy'],
+            'lower': ['neutral', 'sad'],
+            'higher': ['surprise']
+        },
+        'pitch range': {
+            'similar': ['happy'],
+            'lower': ['angry', 'neutral', 'sad', 'surprise'],
+            'higher': ['']
+        },
+        'time': {
+            'similar': ['happy', 'surprise'],
+            'longer': ['angry', 'sad'],
+            'shorter': ['neutral']
+        },
+        'pauses': {
+            'similar': ['happy', 'neutral', 'surprise'],
+            'lower': [''],
+            'higher': ['angry', 'sad']
+        }
+    },
+    'sad': {
+        'loudness': {
+            'similar': ['sad'],
+            'lower': ['neutral'],
+            'higher': ['angry', 'happy', 'surprise']
+        },
+        'average pitch': {
+            'similar': ['neutral', 'sad'],
+            'lower': [''],
+            'higher': ['angry', 'happy', 'surprise']
+        },
+        'pitch range': {
+            'similar': ['neutral', 'sad'],
+            'lower': [''],
+            'higher': ['angry', 'happy', 'surprise']
+        },
+        'time': {
+            'similar': ['sad'],
+            'longer': [''],
+            'shorter': ['angry', 'happy', 'surprise', 'neutral']
+        },
+        'pauses': {
+            'similar': ['sad'],
+            'lower': ['happy', 'neutral', 'surprise'],
+            'higher': ['angry']
+        }
+    },
+    'neutral': {
+        'loudness': {
+            'similar': ['neutral'],
+            'lower': [''],
+            'higher': ['angry', 'happy', 'sad', 'surprise']
+        },
+        'average pitch': {
+            'similar': ['neutral', 'sad'],
+            'lower': [''],
+            'higher': ['angry', 'happy', 'surprise']
+        },
+        'pitch range': {
+            'similar': ['neutral', 'sad'],
+            'lower': [''],
+            'higher': ['angry', 'happy', 'surprise']
+        },
+        'time': {
+            'similar': ['neutral'],
+            'longer': ['angry', 'happy', 'surprise', 'sad'],
+            'shorter': ['']
+        },
+        'pauses': {
+            'similar': ['happy', 'neutral'],
+            'lower': [''],
+            'higher': ['angry', 'sad', 'surprise']
+        }
+    }
+}
 
