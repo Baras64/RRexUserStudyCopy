@@ -295,7 +295,7 @@ function loadTable(filename, isPlay=false) {
             let row = mapTable.insertRow();
 
             cell = row.insertCell();
-            cell.innerHTML = "The actual voice has the </br> following for these words";
+            cell.innerHTML = "For these words:";
             cell = row.insertCell();
             cell = row.insertCell();
 
@@ -304,6 +304,10 @@ function loadTable(filename, isPlay=false) {
                 cell.innerText = element;
                 row.insertCell();
             });
+
+            row = mapTable.insertRow();
+            cell = row.insertCell();
+            cell.innerHTML = "This voice has:";
 
             row = mapTable.insertRow();
 
@@ -337,7 +341,7 @@ function loadTable(filename, isPlay=false) {
                 rltText = cueData.rlt
                 cell.innerText = cueData.rlt;
                 // cell.innerHTML = `<span style='color: ${rlt2color[rltText]}'>${cueData.rlt}</span> ${cueidx2cue[idx2cueidx[index]]}`;
-                cell.innerHTML = `<b>${cueData.rlt}</b> ${cueidx2cue[idx2cueidx[index]]}`;
+                cell.innerHTML = `<b style="color:rgb(69, 170, 227)">${cueData.rlt}</b> ${cueidx2cue[idx2cueidx[index]]}`;
 
                 if (cueData.rlt == "Similar") {
                     cell.title = `Actual has ${cueData.rlt} ${cueidx2cue[idx2cueidx[index]]} to ${data.counterfactual_emotion}`;
@@ -407,7 +411,7 @@ async function checkFile(emotions) {
     }
 }
 
-var baseDir = `example${new URLSearchParams(window.location.search).get("example")}`
+var baseDir = `example${new URLSearchParams(window.location.search).get("example")}`;
 
 checkFile(emotions).then(() => {
 
