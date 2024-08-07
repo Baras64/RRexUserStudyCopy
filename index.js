@@ -12,6 +12,13 @@ let counterfactualSelect = document.getElementById('counterfactual-emotion-selec
 let audioTarget = document.getElementById('play-target');
 let audioCf = document.getElementById('play-counterfactual');
 
+Object.defineProperty(String.prototype, 'capitalize', {
+    value: function () {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    },
+    enumerable: false
+});
+
 audioTarget.addEventListener('click', function () {
     // targetAudio.src = "example1/word_clips/cf_are_6.wav";
     targetAudio.play();
@@ -309,8 +316,6 @@ function loadTable(filename, isPlay = false) {
             cell = row.insertCell();
             cell.innerHTML = "This voice has:";
 
-            row = mapTable.insertRow();
-
             for (let index = 0; index < 5; index++) {
                 cueData = data[idx2cueidx[index]]
                 let row = mapTable.insertRow();
@@ -347,22 +352,26 @@ function loadTable(filename, isPlay = false) {
 
 
                 possibleEmotions = emotionsMap[data.counterfactual_emotion.toLowerCase()][cueidx2cue[idx2cueidx[index].toLowerCase()]][cueData.rlt.toLowerCase()]
-                
-                if(possibleEmotions == undefined){
+
+                console.log("hello".capitalize())
+
+                if (possibleEmotions == undefined) {
                     possibleEmotions = [" "]
+                } else {
+                    possibleEmotions = possibleEmotions.map((e) => {return e.capitalize()})
                 }
 
                 if (cueData.rlt == "Similar") {
                     // cell.title = `Actual has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} to ${data.counterfactual_emotion}`;
                     let elem = document.createElement('span');
                     elem.classList.add("tooltiptext");
-                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} than ${data.counterfactual_emotion} <br> Actual could be: <u>${possibleEmotions.join("</u>, <u>")}</u>`;
+                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} to ${data.counterfactual_emotion} <br> Actual could be: <u><b>${possibleEmotions.join("</b></u>, <u><b>")}</b></u>`;
                     cell.appendChild(elem);
                 } else {
                     // cell.title = `Actual has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} than ${data.counterfactual_emotion}`;
                     let elem = document.createElement('span');
                     elem.classList.add("tooltiptext");
-                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} than ${data.counterfactual_emotion} <br> Actual could be: <u>${possibleEmotions.join("</u>, <u>")}</u>`;
+                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} than ${data.counterfactual_emotion} <br> Actual could be: <u><b>${possibleEmotions.join("</b></u>, <u><b>")}</b></u>`;
                     cell.appendChild(elem);
                 }
 
