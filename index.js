@@ -305,6 +305,8 @@ function loadTable(filename, isPlay = false) {
             cell.innerHTML = "For these words:";
             cell = row.insertCell();
             cell = row.insertCell();
+            cell = row.insertCell();
+            cell = row.insertCell();
 
             words.forEach(element => {
                 let cell = row.insertCell();
@@ -353,27 +355,46 @@ function loadTable(filename, isPlay = false) {
 
                 possibleEmotions = emotionsMap[data.counterfactual_emotion.toLowerCase()][cueidx2cue[idx2cueidx[index].toLowerCase()]][cueData.rlt.toLowerCase()]
 
-                console.log("hello".capitalize())
-
                 if (possibleEmotions == undefined) {
                     possibleEmotions = [" "]
                 } else {
                     possibleEmotions = possibleEmotions.map((e) => {return e.capitalize()})
+                }
+                
+                newEmotionsArr = []
+
+                for (const emotion in possibleEmotions) {
+
+                    elem = `<span style="display: inline-flex; flex-direction: row; align-items: center;">
+                    <u style="font-size: 12px; margin: 5px;"><b>${possibleEmotions[emotion]}</b></u>
+                    <img src="./icons/${possibleEmotions[emotion].toLowerCase()}.svg"/>
+                    </span>`
+
+                    newEmotionsArr.push(elem);
                 }
 
                 if (cueData.rlt == "Similar") {
                     // cell.title = `Actual has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} to ${data.counterfactual_emotion}`;
                     let elem = document.createElement('span');
                     elem.classList.add("tooltiptext");
-                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} to ${data.counterfactual_emotion} <br> Actual could be: <u><b>${possibleEmotions.join("</b></u>, <u><b>")}</b></u>`;
+                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} to ${data.counterfactual_emotion} <br> Actual could be:${newEmotionsArr.join(",")}`;
                     cell.appendChild(elem);
                 } else {
                     // cell.title = `Actual has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} than ${data.counterfactual_emotion}`;
                     let elem = document.createElement('span');
                     elem.classList.add("tooltiptext");
-                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} than ${data.counterfactual_emotion} <br> Actual could be: <u><b>${possibleEmotions.join("</b></u>, <u><b>")}</b></u>`;
+                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} than ${data.counterfactual_emotion} <br> Actual could be:${newEmotionsArr.join(",")}`;
                     cell.appendChild(elem);
                 }
+
+                insertPaddedCell(row, '10px');
+
+                icon = document.createElement('img');
+                icon.src = `./icons/${idx2cueidx[index].toLowerCase()}.svg`;
+                icon.style.width = "16px";
+
+                cell = row.insertCell();
+                cell.appendChild(icon);
 
                 insertPaddedCell(row, '5px');
 
