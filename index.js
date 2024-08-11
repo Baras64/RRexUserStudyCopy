@@ -7,7 +7,7 @@ let targetEmotion = document.getElementById('target-emotion');
 // let counterfactualEmotion = document.getElementById('counterfactual-emotion');
 
 let mapTable = document.getElementById('map-table');
-let counterfactualSelect = document.getElementById('counterfactual-emotion-select');
+// let counterfactualSelect = document.getElementById('counterfactual-emotion-select');
 
 let audioTarget = document.getElementById('play-target');
 let audioCf = document.getElementById('play-counterfactual');
@@ -265,6 +265,12 @@ function loadTable(filename, isPlay = false) {
     fetch(filename)
         .then(response => response.json())
         .then(data => {
+            
+            if(showAns == "true"){
+                document.getElementById('ques-title').innerText = `The answer is ${data.target_emotion.capitalize()}`;
+            }
+
+
             targetAudio.src = data.target_audio_path;
             counterfactualAudio.src = data.counterfactual_audio_path;
 
@@ -365,11 +371,19 @@ function loadTable(filename, isPlay = false) {
 
                 for (const emotion in possibleEmotions) {
 
-                    elem = `<span style="display: inline-flex; flex-direction: row; align-items: center;">
-                    <u style="font-size: 12px; margin: 5px;"><b>${possibleEmotions[emotion]}</b></u>
-                    <img src="./icons/${possibleEmotions[emotion].toLowerCase()}.svg"/>
-                    </span>`
-
+                    
+                    emotionName = possibleEmotions[emotion]
+                    
+                    if(emotionName.length < 2){
+                        elem = `<span style="display: inline-flex; flex-direction: row; align-items: center;">
+                        </span>`
+                    } else {
+                        elem = `<span style="display: inline-flex; flex-direction: row; align-items: center;">
+                        <u style="font-size: 12px; margin: 5px;"><b>${emotionName}</b></u>
+                        <img src="./icons/${emotionName.toLowerCase()}.svg"/>
+                        </span>`
+                    }
+                    
                     newEmotionsArr.push(elem);
                 }
 
@@ -431,14 +445,14 @@ function loadTable(filename, isPlay = false) {
 
 }
 
-counterfactualSelect.addEventListener('change', function () {
+// counterfactualSelect.addEventListener('change', function () {
 
-    let emotion = counterfactualSelect.value;
-    console.log("Counterfactual emotion changed to: ", emotion);
+//     let emotion = counterfactualSelect.value;
+//     console.log("Counterfactual emotion changed to: ", emotion);
 
-    let filename = `./${baseDir}/data_${emotion}.json`;
-    loadTable(filename, isPlay = true);
-});
+//     let filename = `./${baseDir}/data_${emotion}.json`;
+//     loadTable(filename, isPlay = true);
+// });
 
 var newEmotions = [];
 var targetEmo = ""
@@ -459,18 +473,25 @@ async function checkFile(emotions) {
 }
 
 var baseDir = `example${new URLSearchParams(window.location.search).get("example")}`;
+var showAns = new URLSearchParams(window.location.search).get("showAns");
 
 checkFile(emotions).then(() => {
 
-    counterfactualSelect.innerHTML = "";
-    newEmotions.forEach(emotion => {
-        let option = document.createElement('option');
-        option.value = emotion;
-        option.innerText = emotion.charAt(0).toUpperCase() + emotion.slice(1);
-        counterfactualSelect.appendChild(option)
-    });
+    // counterfactualSelect.innerHTML = "";
+    // newEmotions.forEach(emotion => {
+    //     let option = document.createElement('option');
+    //     option.value = emotion;
+    //     option.innerText = emotion.charAt(0).toUpperCase() + emotion.slice(1);
+    //     counterfactualSelect.appendChild(option)
+    // });
 
-    loadTable(`./${baseDir}/data_${newEmotions[0]}.json`);
+    elem = document.getElementById('counterfactual-emotion-text')
+    emotionFile = newEmotions[Math.floor(Math.random() * newEmotions.length)];
+    elem.innerText = emotionFile.capitalize();
+
+
+
+    loadTable(`./${baseDir}/data_${emotionFile}.json`);
 });
 // loadTable("");
 
