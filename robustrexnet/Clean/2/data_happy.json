@@ -1,0 +1,146 @@
+{
+    "text": "As rich as peter son in law",
+    "loudness": {
+        "left": [
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "rgb(69, 170, 227)"
+        ],
+        "right": [
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)"
+        ],
+        "rlt": "Lower"
+    },
+    "average_pitch": {
+        "left": [
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "rgb(69, 170, 227)"
+        ],
+        "right": [
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "rgb(69, 170, 227)"
+        ],
+        "rlt": "Lower"
+    },
+    "pitch_range": {
+        "left": [
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "rgb(69, 170, 227)"
+        ],
+        "right": [
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)"
+        ],
+        "rlt": "Lower"
+    },
+    "speed": {
+        "left": [
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray",
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)"
+        ],
+        "rlt": "Shorter"
+    },
+    "pauses": {
+        "left": [
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "white"
+        ],
+        "right": [
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "white"
+        ],
+        "rlt": "Similar"
+    },
+    "target_emotion": "Neutral",
+    "counterfactual_emotion": "Happy",
+    "tgt_word_clips": [
+        "2/word_clips_1/tgt_as_0.wav",
+        "2/word_clips_1/tgt_rich_1.wav",
+        "2/word_clips_1/tgt_as_2.wav",
+        "2/word_clips_1/tgt_peter_3.wav",
+        "2/word_clips_1/tgt_son_4.wav",
+        "2/word_clips_1/tgt_in_5.wav",
+        "2/word_clips_1/tgt_law_6.wav"
+    ],
+    "cf_word_clips": [
+        "2/word_clips_1/cf_as_0.wav",
+        "2/word_clips_1/cf_rich_1.wav",
+        "2/word_clips_1/cf_as_2.wav",
+        "2/word_clips_1/cf_peter_3.wav",
+        "2/word_clips_1/cf_son_4.wav",
+        "2/word_clips_1/cf_in_5.wav",
+        "2/word_clips_1/cf_law_6.wav"
+    ],
+    "tgt_pause_word_clips": [
+        "2/word_clips_1/tgt_consecutive_as_rich_0.wav",
+        "2/word_clips_1/tgt_consecutive_rich_as_1.wav",
+        "2/word_clips_1/tgt_consecutive_as_peter_2.wav",
+        "2/word_clips_1/tgt_consecutive_peter_son_3.wav",
+        "2/word_clips_1/tgt_consecutive_son_in_4.wav",
+        "2/word_clips_1/tgt_consecutive_in_law_5.wav"
+    ],
+    "cf_pause_word_clips": [
+        "2/word_clips_1/cf_consecutive_as_rich_0.wav",
+        "2/word_clips_1/cf_consecutive_rich_as_1.wav",
+        "2/word_clips_1/cf_consecutive_as_peter_2.wav",
+        "2/word_clips_1/cf_consecutive_peter_son_3.wav",
+        "2/word_clips_1/cf_consecutive_son_in_4.wav",
+        "2/word_clips_1/cf_consecutive_in_law_5.wav"
+    ],
+    "target_audio_path": "2/word_clips_1/tgt_1.wav",
+    "counterfactual_audio_path": "2/word_clips_1/cf_1.wav"
+}

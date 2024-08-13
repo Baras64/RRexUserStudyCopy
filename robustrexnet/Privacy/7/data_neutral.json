@@ -1,0 +1,146 @@
+{
+    "text": "You're not a runaway who are you",
+    "loudness": {
+        "left": [
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)"
+        ],
+        "rlt": "Lower"
+    },
+    "average_pitch": {
+        "left": [
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)"
+        ],
+        "rlt": "Lower"
+    },
+    "pitch_range": {
+        "left": [
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)"
+        ],
+        "rlt": "Similar"
+    },
+    "speed": {
+        "left": [
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray"
+        ],
+        "right": [
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)"
+        ],
+        "rlt": "Longer"
+    },
+    "pauses": {
+        "left": [
+            "rgb(69, 170, 227)",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "lightgray",
+            "white"
+        ],
+        "right": [
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "rgb(69, 170, 227)",
+            "white"
+        ],
+        "rlt": "Higher"
+    },
+    "target_emotion": "Happy",
+    "counterfactual_emotion": "Neutral",
+    "tgt_word_clips": [
+        "7/word_clips_0/tgt_you're_0.wav",
+        "7/word_clips_0/tgt_not_1.wav",
+        "7/word_clips_0/tgt_a_2.wav",
+        "7/word_clips_0/tgt_runaway_3.wav",
+        "7/word_clips_0/tgt_who_4.wav",
+        "7/word_clips_0/tgt_are_5.wav",
+        "7/word_clips_0/tgt_you_6.wav"
+    ],
+    "cf_word_clips": [
+        "7/word_clips_0/cf_you_0.wav",
+        "7/word_clips_0/cf_not_2.wav",
+        "7/word_clips_0/cf_a_3.wav",
+        "7/word_clips_0/cf_runaway_4.wav",
+        "7/word_clips_0/cf_who_5.wav",
+        "7/word_clips_0/cf_are_6.wav",
+        "7/word_clips_0/cf_you_7.wav"
+    ],
+    "tgt_pause_word_clips": [
+        "7/word_clips_0/tgt_consecutive_you're_not_0.wav",
+        "7/word_clips_0/tgt_consecutive_not_a_1.wav",
+        "7/word_clips_0/tgt_consecutive_a_runaway_2.wav",
+        "7/word_clips_0/tgt_consecutive_runaway_who_3.wav",
+        "7/word_clips_0/tgt_consecutive_who_are_4.wav",
+        "7/word_clips_0/tgt_consecutive_are_you_5.wav"
+    ],
+    "cf_pause_word_clips": [
+        "7/word_clips_0/cf_consecutive_you_are_0.wav",
+        "7/word_clips_0/cf_consecutive_not_a_2.wav",
+        "7/word_clips_0/cf_consecutive_a_runaway_3.wav",
+        "7/word_clips_0/cf_consecutive_runaway_who_4.wav",
+        "7/word_clips_0/cf_consecutive_who_are_5.wav",
+        "7/word_clips_0/cf_consecutive_are_you_6.wav"
+    ],
+    "target_audio_path": "7/word_clips_0/tgt_0.wav",
+    "counterfactual_audio_path": "7/word_clips_0/cf_0.wav"
+}

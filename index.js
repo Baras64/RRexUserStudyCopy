@@ -271,8 +271,8 @@ function loadTable(filename, isPlay = false) {
             }
 
 
-            targetAudio.src = data.target_audio_path;
-            counterfactualAudio.src = data.counterfactual_audio_path;
+            targetAudio.src = `${baseDir}${data.target_audio_path}`;
+            counterfactualAudio.src = `${baseDir}${data.counterfactual_audio_path}`;
 
             targetAudio.onplay = function () {
                 audioTarget.classList.remove('fa-play');
@@ -425,9 +425,9 @@ function loadTable(filename, isPlay = false) {
                     let cell = row.insertCell();
 
                     if (index == 4) {
-                        capsule = createTriangle(colorLeft, colorRight, data.tgt_pause_word_clips[idx], data.cf_pause_word_clips[idx]);
+                        capsule = createTriangle(colorLeft, colorRight, `${baseDir}${data.tgt_word_clips[idx]}`, `${baseDir}${data.cf_word_clips[idx]}`);
                     } else {
-                        capsule = createCapsule(colorLeft, colorRight, data.tgt_word_clips[idx], data.cf_word_clips[idx]);
+                        capsule = createCapsule(colorLeft, colorRight, `${baseDir}${data.tgt_word_clips[idx]}`, `${baseDir}${data.cf_word_clips[idx]}`);
                     }
 
                     cell.appendChild(capsule);
@@ -461,7 +461,7 @@ async function checkFile(emotions) {
     let response;
     for (let i = 0; i < emotions.length; i++) {
 
-        response = await fetch(`./${baseDir}/data_${emotions[i]}.json`);
+        response = await fetch(`./${baseDir}/${id}/data_${emotions[i]}.json`);
         if (response.ok) {
             console.log("File exists")
             newEmotions.push(emotions[i])
@@ -472,26 +472,32 @@ async function checkFile(emotions) {
     }
 }
 
-var baseDir = `example${new URLSearchParams(window.location.search).get("example")}`;
+// var baseDir = `example${new URLSearchParams(window.location.search).get("example")}`;
 var showAns = new URLSearchParams(window.location.search).get("showAns");
+var cf = new URLSearchParams(window.location.search).get("cf");
+
+var baseDir = `${new URLSearchParams(window.location.search).get("xaitype")}/${new URLSearchParams(window.location.search).get("audiotype")}/`;
+var id = new URLSearchParams(window.location.search).get("id");
 
 checkFile(emotions).then(() => {
-
+    
     // counterfactualSelect.innerHTML = "";
     // newEmotions.forEach(emotion => {
-    //     let option = document.createElement('option');
-    //     option.value = emotion;
-    //     option.innerText = emotion.charAt(0).toUpperCase() + emotion.slice(1);
-    //     counterfactualSelect.appendChild(option)
-    // });
-
+        //     let option = document.createElement('option');
+        //     option.value = emotion;
+        //     option.innerText = emotion.charAt(0).toUpperCase() + emotion.slice(1);
+        //     counterfactualSelect.appendChild(option)
+        // });
+        
+    console.log(baseDir, id, cf)
     elem = document.getElementById('counterfactual-emotion-text')
-    emotionFile = newEmotions[Math.floor(Math.random() * newEmotions.length)];
-    elem.innerText = emotionFile.capitalize();
+    // emotionFile = newEmotions[Math.floor(Math.random() * newEmotions.length)];
+    // elem.innerText = emotionFile.capitalize();
 
+    elem.innerText = cf.capitalize();
 
-
-    loadTable(`./${baseDir}/data_${emotionFile}.json`);
+    // loadTable(`./${baseDir}/data_${emotionFile}.json`);
+    loadTable(`./${baseDir}/${id}/data_${cf.toLowerCase()}.json`);
 });
 // loadTable("");
 
