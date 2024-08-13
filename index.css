@@ -166,3 +166,8 @@ table {
   .tooltip:hover .tooltiptext {
     visibility: visible;
   }
+
+  .tutorial-circle {
+    color: green;
+    font-size: 25px;
+  }
