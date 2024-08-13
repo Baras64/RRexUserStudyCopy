@@ -18,12 +18,14 @@ if(tutorialId === '1'){
     table.style.display = 'none';
     legend.style.display = 'none';
 
+    tutorial1.style.display = 'block';
     tutorial2.style.display = 'none';
     tutorial3.style.display = 'none';
 
 } else if(tutorialId === '2') {
 
     tutorial1.style.display = 'none';
+    tutorial2.style.display = 'block';
     tutorial3.style.display = 'none';
 
     quesTitle.style.display = 'none';
@@ -49,7 +51,8 @@ if(tutorialId === '1'){
 } else if(tutorialId === '3') {
 
     tutorial1.style.display = 'none';
-    tutorial2.style.display = 'none'; 
+    tutorial2.style.display = 'none';
+    tutorial3.style.display = 'block';
 
     quesTitle.style.display = 'none';
     containerInfo.style.display = 'none';

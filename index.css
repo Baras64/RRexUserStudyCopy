@@ -167,7 +167,8 @@ table {
     visibility: visible;
   }
 
-  .tutorial-circle {
+.tutorial-circle {
     color: green;
     font-size: 25px;
-  }
+    display: none;
+}
