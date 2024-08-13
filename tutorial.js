@@ -1,6 +1,6 @@
 var tutorialId = new URLSearchParams(window.location.search).get('tutorial');
 
-table = document.getElementById('map-table')
+table = document.getElementById('map-table');
 
 
 
