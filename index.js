@@ -497,7 +497,7 @@ checkFile(emotions).then(() => {
     elem.innerText = cf.capitalize();
 
     // loadTable(`./${baseDir}/data_${emotionFile}.json`);
-    loadTable(`./${baseDir}/${id}/data_${cf.toLowerCase()}.json`);
+    loadTable(`./${baseDir}${id}/data_${cf.toLowerCase()}.json`);
 });
 // loadTable("");
 
