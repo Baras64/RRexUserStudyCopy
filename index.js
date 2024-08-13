@@ -265,8 +265,8 @@ function loadTable(filename, isPlay = false) {
     fetch(filename)
         .then(response => response.json())
         .then(data => {
-            
-            if(showAns == "true"){
+
+            if (showAns == "true") {
                 document.getElementById('ques-title').innerText = `The answer is ${data.target_emotion.capitalize()}`;
             }
 
@@ -354,7 +354,11 @@ function loadTable(filename, isPlay = false) {
                 rltText = cueData.rlt
                 cell.innerText = cueData.rlt;
                 // cell.innerHTML = `<span style='color: ${rlt2color[rltText]}'>${cueData.rlt}</span> ${cueidx2cue[idx2cueidx[index]]}`;
-                cell.innerHTML = `<b style="color:rgb(69, 170, 227)">${cueData.rlt}</b> ${cueidx2cue[idx2cueidx[index]]}`;
+                cueStr = cueidx2cue[idx2cueidx[index]]
+                if (cueStr == "time") {
+                    cueStr = "speaking time"
+                }
+                cell.innerHTML = `<b style="color:rgb(69, 170, 227)">${cueData.rlt}</b> ${cueStr}`;
 
                 cell.classList.add("tooltip");
 
@@ -364,17 +368,17 @@ function loadTable(filename, isPlay = false) {
                 if (possibleEmotions == undefined) {
                     possibleEmotions = [" "]
                 } else {
-                    possibleEmotions = possibleEmotions.map((e) => {return e.capitalize()})
+                    possibleEmotions = possibleEmotions.map((e) => { return e.capitalize() })
                 }
-                
+
                 newEmotionsArr = []
 
                 for (const emotion in possibleEmotions) {
 
-                    
+
                     emotionName = possibleEmotions[emotion]
-                    
-                    if(emotionName.length < 2){
+
+                    if (emotionName.length < 2) {
                         elem = `<span style="display: inline-flex; flex-direction: row; align-items: center;">
                         </span>`
                     } else {
@@ -383,21 +387,26 @@ function loadTable(filename, isPlay = false) {
                         <img src="./icons/${emotionName.toLowerCase()}.svg"/>
                         </span>`
                     }
-                    
+
                     newEmotionsArr.push(elem);
+                }
+
+                cueStr = cueidx2cue[idx2cueidx[index]].toLowerCase()
+                if (cueStr == "time") {
+                    cueStr = "speaking time"
                 }
 
                 if (cueData.rlt == "Similar") {
                     // cell.title = `Actual has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} to ${data.counterfactual_emotion}`;
                     let elem = document.createElement('span');
                     elem.classList.add("tooltiptext");
-                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} to ${data.counterfactual_emotion} <br> Actual could be:${newEmotionsArr.join(",")}`;
+                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueStr} to ${data.counterfactual_emotion} <br> Actual could be:${newEmotionsArr.join(",")}`;
                     cell.appendChild(elem);
                 } else {
                     // cell.title = `Actual has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} than ${data.counterfactual_emotion}`;
                     let elem = document.createElement('span');
                     elem.classList.add("tooltiptext");
-                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueidx2cue[idx2cueidx[index]].toLowerCase()} than ${data.counterfactual_emotion} <br> Actual could be:${newEmotionsArr.join(",")}`;
+                    elem.innerHTML = `<u>Actual</u> has ${cueData.rlt.toLowerCase()} ${cueStr} than ${data.counterfactual_emotion} <br> Actual could be:${newEmotionsArr.join(",")}`;
                     cell.appendChild(elem);
                 }
 
@@ -480,15 +489,15 @@ var baseDir = `${new URLSearchParams(window.location.search).get("xaitype")}/${n
 var id = new URLSearchParams(window.location.search).get("id");
 
 checkFile(emotions).then(() => {
-    
+
     // counterfactualSelect.innerHTML = "";
     // newEmotions.forEach(emotion => {
-        //     let option = document.createElement('option');
-        //     option.value = emotion;
-        //     option.innerText = emotion.charAt(0).toUpperCase() + emotion.slice(1);
-        //     counterfactualSelect.appendChild(option)
-        // });
-        
+    //     let option = document.createElement('option');
+    //     option.value = emotion;
+    //     option.innerText = emotion.charAt(0).toUpperCase() + emotion.slice(1);
+    //     counterfactualSelect.appendChild(option)
+    // });
+
     console.log(baseDir, id, cf)
     elem = document.getElementById('counterfactual-emotion-text')
     // emotionFile = newEmotions[Math.floor(Math.random() * newEmotions.length)];
@@ -500,8 +509,6 @@ checkFile(emotions).then(() => {
     loadTable(`${baseDir}${id}/data_${cf.toLowerCase()}.json`);
 });
 // loadTable("");
-
-
 
 
 let emotionsMap = {
