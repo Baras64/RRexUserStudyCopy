@@ -461,7 +461,7 @@ async function checkFile(emotions) {
     let response;
     for (let i = 0; i < emotions.length; i++) {
 
-        response = await fetch(`./${baseDir}/${id}/data_${emotions[i]}.json`);
+        response = await fetch(`./${baseDir}${id}/data_${emotions[i]}.json`);
         if (response.ok) {
             console.log("File exists")
             newEmotions.push(emotions[i])
