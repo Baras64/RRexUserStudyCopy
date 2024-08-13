@@ -476,7 +476,7 @@ async function checkFile(emotions) {
 var showAns = new URLSearchParams(window.location.search).get("showAns");
 var cf = new URLSearchParams(window.location.search).get("cf");
 
-var baseDir = `${new URLSearchParams(window.location.search).get("xaitype")}/${new URLSearchParams(window.location.search).get("audiotype")}/`;
+var baseDir = `RRexUserStudy/${new URLSearchParams(window.location.search).get("xaitype")}/${new URLSearchParams(window.location.search).get("audiotype")}/`;
 var id = new URLSearchParams(window.location.search).get("id");
 
 checkFile(emotions).then(() => {
