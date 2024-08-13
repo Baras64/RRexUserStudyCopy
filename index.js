@@ -461,7 +461,7 @@ async function checkFile(emotions) {
     let response;
     for (let i = 0; i < emotions.length; i++) {
 
-        response = await fetch(`/${baseDir}${id}/data_${emotions[i]}.json`);
+        response = await fetch(`${baseDir}${id}/data_${emotions[i]}.json`);
         if (response.ok) {
             console.log("File exists")
             newEmotions.push(emotions[i])
@@ -476,7 +476,7 @@ async function checkFile(emotions) {
 var showAns = new URLSearchParams(window.location.search).get("showAns");
 var cf = new URLSearchParams(window.location.search).get("cf");
 
-var baseDir = `RRexUserStudy/${new URLSearchParams(window.location.search).get("xaitype")}/${new URLSearchParams(window.location.search).get("audiotype")}/`;
+var baseDir = `${new URLSearchParams(window.location.search).get("xaitype")}/${new URLSearchParams(window.location.search).get("audiotype")}/`;
 var id = new URLSearchParams(window.location.search).get("id");
 
 checkFile(emotions).then(() => {
@@ -497,7 +497,7 @@ checkFile(emotions).then(() => {
     elem.innerText = cf.capitalize();
 
     // loadTable(`./${baseDir}/data_${emotionFile}.json`);
-    loadTable(`/${baseDir}${id}/data_${cf.toLowerCase()}.json`);
+    loadTable(`${baseDir}${id}/data_${cf.toLowerCase()}.json`);
 });
 // loadTable("");
 
