@@ -262,6 +262,7 @@ function insertPaddedCell(row, padding = '30px') {
 function loadTable(filename, isPlay = false) {
 
     mapTable.innerHTML = "";
+    audioText.innerHTML = "";
     fetch(filename)
         .then(response => response.json())
         .then(data => {
@@ -649,3 +650,26 @@ let emotionsMap = {
     }
 }
 
+form_xai_type = document.getElementById('form-xai-type');
+form_audio_type = document.getElementById('form-audio-type');
+form_example_id = document.getElementById('form-example-id');
+form_cf = document.getElementById('form-cf');
+
+let testingForm = document.getElementById('form-submit-btn');
+testingForm.addEventListener('click', function (e) {
+    console.log("Form submitted");
+    // e.preventDefault();
+    // let formData = new FormData(testingForm);
+    // let emotion = formData.get('emotion');
+    // let filename = `./${baseDir}/data_${emotion}.json`;
+    // loadTable(filename);
+
+    baseDir = `${form_xai_type.value}/${form_audio_type.value}/`;
+    console.log(baseDir, form_example_id.value, form_cf.value)
+    showAns = true;
+
+    elem = document.getElementById('counterfactual-emotion-text')
+    elem.innerText = form_cf.value.capitalize();
+
+    loadTable(`${baseDir}${form_example_id.value}/data_${form_cf.value.toLowerCase()}.json`);
+});
