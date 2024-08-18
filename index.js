@@ -267,10 +267,7 @@ function loadTable(filename, isPlay = false) {
         .then(response => response.json())
         .then(data => {
 
-            if (showAns == "true") {
-                document.getElementById('ques-title').innerText = `The answer is ${data.target_emotion.capitalize()}`;
-            }
-
+            document.getElementById('ques-title').innerText = `The answer is ${data.target_emotion.capitalize()}`;
 
             targetAudio.src = `${baseDir}${data.target_audio_path}`;
             counterfactualAudio.src = `${baseDir}${data.counterfactual_audio_path}`;
@@ -435,7 +432,7 @@ function loadTable(filename, isPlay = false) {
                     let cell = row.insertCell();
 
                     if (index == 4) {
-                        capsule = createTriangle(colorLeft, colorRight, `${baseDir}${data.tgt_word_clips[idx]}`, `${baseDir}${data.cf_word_clips[idx]}`);
+                        capsule = createTriangle(colorLeft, colorRight, `${baseDir}${data.tgt_pause_word_clips[idx]}`, `${baseDir}${data.cf_pause_word_clips[idx]}`);
                     } else {
                         capsule = createCapsule(colorLeft, colorRight, `${baseDir}${data.tgt_word_clips[idx]}`, `${baseDir}${data.cf_word_clips[idx]}`);
                     }
