@@ -133,8 +133,9 @@
         "1/word_clips_0/cf_our_2.wav",
         "1/word_clips_0/cf_dogs_3.wav",
         "1/word_clips_0/cf_and_4.wav",
-        "1/word_clips_0/cf_water_5.wav",
-        "1/word_clips_0/cf_dogs_6.wav"
+        "1/word_clips_0/cf_what_5.wav",
+        "1/word_clips_0/cf_are_6.wav",
+        "1/word_clips_0/cf_dogs_7.wav"
     ],
     "tgt_pause_word_clips": [
         "1/word_clips_0/tgt_consecutive_and_what_0.wav",
@@ -151,7 +152,8 @@
         "1/word_clips_0/cf_consecutive_our_dogs_2.wav",
         "1/word_clips_0/cf_consecutive_dogs_and_3.wav",
         "1/word_clips_0/cf_consecutive_and_water_4.wav",
-        "1/word_clips_0/cf_consecutive_water_dogs_5.wav"
+        "1/word_clips_0/cf_consecutive_what_are_5.wav",
+        "1/word_clips_0/cf_consecutive_are_doves_6.wav"
     ],
     "target_audio_path": "1/word_clips_0/tgt_0.wav",
     "counterfactual_audio_path": "1/word_clips_0/cf_0.wav"
